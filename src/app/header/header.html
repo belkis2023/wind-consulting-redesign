@@ -1,5 +1,6 @@
-<nav class="flex justify-between items-center p-4 shadow-md gap-12
-md:justify-start ">
+<nav #navbar class="!fixed top-0 left-0 w-full z-50 bg-white 
+  flex justify-between items-center p-4 shadow-md gap-12
+  md:justify-start ">
 
   <!-- The logo -->
   <div class="text-xl font-bold">
@@ -114,41 +115,45 @@ md:justify-start ">
 
 <!-- Mobile + desktop Menu search open -->
 <!-- here is the logic: - if search is cliked on either desktop or mobile we show the search edge-to-edge input-->
-<div class=" bg-white fixed left-0 right-0 z-50"
+<div #searchBar class="fixed bg-white left-0 right-0 z-50"
   [ngClass]="{
        'block': isSearchOpen,
        'hidden': !isSearchOpen
      }">
   <!-- Search input -->
   <div class="relative flex !w-full">
-    <input 
-      type="text" 
-      placeholder="Search..." 
-      class="w-full px-4 py-4 pr-16 pl-4 text-gray-700 bg-gray-100 
-      focus:outline-none focus:ring-2
-      focus:ring-wind-blue focus:border-transparent transition-all duration-200
-      rounded-none
-      sm:pr-20"
-      #searchInput
-      
-    />
+    <div class="!w-full">
+      <input 
+        type="text" 
+        placeholder="Search..." 
+        class="w-full px-4 py-4 pr-16 pl-4 text-gray-700 bg-gray-100 
+        focus:outline-none focus:ring-2
+        focus:ring-wind-blue focus:border-transparent duration-200
+        rounded-none
+        sm:pr-20"
+        #searchInput
+        
+      />
+    </div>
     
     <!-- Mobile Search -->
     <!-- Clickable search icon on the right -->
-    <button class=" md:hidden absolute inset-y-0 right-0 flex items-center pr-4" 
+    <div>
+      <button class=" md:hidden absolute inset-y-0 right-0 flex items-center pr-4" 
            >
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
-        class="w-[46px] h-[46px]     
-          xs:w-[56px] xs:h-[56px]
-          sm:w-[61px] sm:h-[61px]">
-        <!-- Blue circle background -->
-        <circle cx="12" cy="12" r="12" fill="#182863"/>
-        <!-- White magnifier -->
-        <path stroke="white" stroke-width="1.5" fill="none" 
-        stroke-linecap="round" stroke-linejoin="round" 
-           d="m16.5 16.5-2.5-2.5m0 0a3.5 3.5 0 1 0-4.95-4.95 3.5 3.5 0 0 0 4.95 4.95Z" />
-      </svg>
-    </button>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+          class="w-[46px] h-[46px]     
+            xs:w-[56px] xs:h-[56px]
+            sm:w-[61px] sm:h-[61px]">
+          <!-- Blue circle background -->
+          <circle cx="12" cy="12" r="12" fill="#182863"/>
+          <!-- White magnifier -->
+          <path stroke="white" stroke-width="1.5" fill="none" 
+          stroke-linecap="round" stroke-linejoin="round" 
+            d="m16.5 16.5-2.5-2.5m0 0a3.5 3.5 0 1 0-4.95-4.95 3.5 3.5 0 0 0 4.95 4.95Z" />
+        </svg>
+      </button>
+    </div>
 
     
 
@@ -167,7 +172,7 @@ md:justify-start ">
 
 
 <!-- Mobile Menu items -->
-<div class="md:hidden bg-white shadow-b-lg" 
+<div [style.marginTop.px]="searchBarHeight" class="fixed md:hidden bg-white shadow-b-lg left-0 right-0 z-50" 
      [ngClass]="{
        'block': isMenuOpen,
        'hidden': !isMenuOpen
