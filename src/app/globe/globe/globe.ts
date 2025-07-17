@@ -1,19 +1,11 @@
-import { Component, AfterViewInit, ElementRef, ViewChild, Renderer2 } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChild, Renderer2, createComponent, Injector, EnvironmentInjector, Input } from '@angular/core';
 import GlobeGl from 'globe.gl';
 import * as THREE from 'three';
 import * as topojson from 'topojson-client';
+import { Marker } from '../../marker/marker/marker';
+import { CountryGeoService } from '../../services/country-geo';
+import { Location } from '../../models/location';
 
-const locations: Location[] = [
-  { lat: 36.8065, lng: 10.1815, name: 'Tunis Office' },
-  { lat: 48.8566, lng: 2.3522, name: 'Paris Office' }
-  // Add more as needed
-];
-
-interface Location {
-  lat: number;
-  lng: number;
-  name: string;
-}
 
 @Component({
   selector: 'app-globe',
@@ -22,12 +14,22 @@ interface Location {
   styleUrl: './globe.css'
 })
 export class Globe implements AfterViewInit {
+
+  @Input() locations: Location[] = [];
+
   @ViewChild('globeContainer') globeContainer!: ElementRef;
   @ViewChild('globeWrapper', { static: false }) globeWrapper!: ElementRef;
 
-  constructor(private renderer: Renderer2) { }
+  // Store globe instance as class property
+  private globeInstance: any;
+
+  constructor(private renderer: Renderer2,
+    private environmentInjector: EnvironmentInjector,
+    private countryGeoService: CountryGeoService) { }
 
   async ngAfterViewInit() {
+    //load the countries we need so we get accurate locations on map
+    await this.countryGeoService.loadCountries();
     const world = await fetch('https://unpkg.com/world-atlas@2/countries-110m.json').then(res => res.json());
     const countries = topojson.feature(world, world.objects.countries) as any;
 
@@ -44,11 +46,18 @@ export class Globe implements AfterViewInit {
     globe.scene().add(new THREE.AmbientLight(0xffffff, 0.7));
     globe.scene().add(new THREE.DirectionalLight(0xffffff, 0.6));
     const controls = globe.controls();
-    controls.autoRotate = true;
-    controls.autoRotateSpeed = 0.3;
+    controls.autoRotate = false;
+    //controls.autoRotateSpeed = 0.3;
     controls.enableZoom = false;
 
-    this.renderMarkers(globe);
+    const tunisiaCentroid = this.countryGeoService.getCountryCentroidByName("Tunisia");
+    console.log('Tunisia centroid:', tunisiaCentroid);
+
+    if (globe) {
+      this.renderMarkers(globe);
+    } else {
+      console.error('Globe instance is undefined!');
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -75,25 +84,27 @@ export class Globe implements AfterViewInit {
 
   //adding locations
   renderMarkers(globeInstance: any) {
-
-    globeInstance.htmlElementsData(locations)
+    globeInstance
+      .htmlElementsData(this.locations)
       .htmlLat((d: Location) => d.lat)
       .htmlLng((d: Location) => d.lng)
       .htmlElement((d: Location) => this.createMarkerElement(d));
   }
 
   //creates a styled marker for a location 
-  createMarkerElement(location: { name: string }) {
-    const el = document.createElement('div');
-    el.innerHTML = location.name;
-    el.style.color = '#333';
-    el.style.background = '#fff';
-    el.style.padding = '2px 5px';
-    el.style.borderRadius = '4px';
-    el.style.fontSize = '10px';
-    el.style.boxShadow = '0 0 2px rgba(0,0,0,0.5)';
-    el.style.pointerEvents = 'auto';
-    el.onclick = () => alert(`Clicked on: ${location.name}`);
-    return el;
+  createMarkerElement(location: Location): HTMLElement {
+    const componentRef = createComponent(Marker, {
+      environmentInjector: this.environmentInjector
+    });
+
+    componentRef.setInput('name', location.name);
+    componentRef.setInput('details', location.details);
+
+    componentRef.changeDetectorRef.detectChanges();
+    console.log(location.name);
+
+    return componentRef.location.nativeElement;
   }
+
+
 }
