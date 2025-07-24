@@ -1,0 +1,47 @@
+<div class="relative w-9/12 top-4 md:w-5/12 h-72 mr-8 md:mb-4 rounded-full"
+    >
+    <!-- Bottom base Layer: the blue -->
+    <div class="absolute inset-0 rounded-xl z-0 flex text-white
+                subtle-inner-shadow"
+            [ngClass]="bgColor">
+    </div>
+
+
+    <!-- the top layer: image + shadow + content -->
+    <div class="absolute inset-0 z-10 rounded-full flex text-white">
+        <!-- image + shadow -->
+        <div class="hidden md:block h-full w-5/12 flex-shrink-0 relative">
+            <!-- image -->
+            <img [src]="project.backgroundImageUrl"
+                class="w-full h-full custom-curve object-cover z-10 rounded-xl">
+            <!-- shadow -->
+            <div class="absolute -z-10 bg-slate-400/70 w-full h-full left-2 top-0 custom-curve"></div>
+        </div>
+
+        <!-- content: tags + title + description -->
+        <div class="flex flex-col space-y-8 space-x-8 flex-wrap w-full">
+            <!-- tags -->
+            <div class="flex flex-row-reverse gap-3 mt-4 !mr-4">
+                <div *ngFor="let tag of project.tags; let i = index">
+                    <app-project-tag [tagColor] =  calculatedTagColors[i] [tag] = 'tag'></app-project-tag>
+                </div>
+            </div>
+
+            <!-- title + description -->
+            <div class="flex flex-col space-y-3">
+                <h2 class="text-white font-bold">
+                    {{ project.title }}
+                </h2>
+                <p>
+                    {{ project.description }}
+                </p>
+            </div>
+
+            <!-- bottom arrow -->
+            <div class="flex justify-end absolute bottom-0 right-0 px-4 py-4">
+                <app-circular-button icon="arrow-up-right" [outline]="true" outlineColor="border-wind-blue"></app-circular-button>
+            </div>
+
+        </div>
+    </div>
+</div>
