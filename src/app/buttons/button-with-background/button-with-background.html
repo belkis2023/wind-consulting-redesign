@@ -1,0 +1,7 @@
+<button class="bg-no-repeat bg-cover bg-center text-white font-semibold rounded-md" 
+    [ngClass]="[height, width]"
+    [ngStyle]="{
+    'background-image': 'url(' + backgroundImageUrl + ')'
+  }">
+    {{ label }}
+</button>

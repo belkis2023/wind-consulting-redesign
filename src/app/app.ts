@@ -3,7 +3,6 @@ import { RouterOutlet } from '@angular/router';
 import { Header } from "./header/header";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Hero } from "./hero/hero";
-import { Globe } from "./globe/globe/globe";
 import { GenericTitle } from "./generic-title/generic-title/generic-title";
 import { LocationProvider } from './services/location-provider/location-provider';
 import { Location } from './models/location';

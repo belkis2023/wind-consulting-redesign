@@ -1,12 +1,13 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { ButtonWithBackground } from "../buttons/button-with-background/button-with-background";
 
 
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule],
+  imports: [CommonModule, ButtonWithBackground],
   templateUrl: './header.html',
   styleUrl: './header.css',
 
@@ -63,6 +64,9 @@ export class Header implements AfterViewInit {
 
   }
 
+  //animations on the navbar using gsap
+
+  
 
  
 

@@ -18,7 +18,6 @@ export class Globe implements AfterViewInit {
   @Input() locations: Location[] = [];
 
   @ViewChild('globeContainer') globeContainer!: ElementRef;
-  @ViewChild('globeWrapper', { static: false }) globeWrapper!: ElementRef;
 
   // Store globe instance as class property
   private globeInstance: any;
@@ -46,8 +45,8 @@ export class Globe implements AfterViewInit {
     globe.scene().add(new THREE.AmbientLight(0xffffff, 0.7));
     globe.scene().add(new THREE.DirectionalLight(0xffffff, 0.6));
     const controls = globe.controls();
-    controls.autoRotate = false;
-    //controls.autoRotateSpeed = 0.3;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 0.4;
     controls.enableZoom = false;
 
     const tunisiaCentroid = this.countryGeoService.getCountryCentroidByName("Tunisia");
@@ -59,24 +58,6 @@ export class Globe implements AfterViewInit {
       console.error('Globe instance is undefined!');
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            // Add scale-110, remove scale-100 (grow)
-            this.renderer.removeClass(this.globeWrapper.nativeElement, 'scale-100');
-            this.renderer.addClass(this.globeWrapper.nativeElement, 'scale-110');
-          } else {
-            // Add scale-100, remove scale-110 (shrink)
-            this.renderer.removeClass(this.globeWrapper.nativeElement, 'scale-110');
-            this.renderer.addClass(this.globeWrapper.nativeElement, 'scale-100');
-          }
-        });
-      },
-      { threshold: 0.5 }  // trigger when 50% visible
-    );
-
-    observer.observe(this.globeWrapper.nativeElement);
   }
 
 

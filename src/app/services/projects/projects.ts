@@ -13,34 +13,28 @@ export class Projects {
     {
       title: 'Project One',
       description: 'First project description',
-      backgroundImageUrl: 'src/app/shared/background-images/cards/project-card/project-card1.jpg',
+      backgroundImageUrl: 'background-images/cards/project-card/left1.jpg',
       tags: ['Angular', 'TypeScript', 'Tailwind']
     },
     {
       title: 'Project Two',
       description: 'Second project description',
-      backgroundImageUrl: 'src/app/shared/background-images/cards/project-card/project-card1.jpg',
-      tags: ['API', 'Node.js', 'MongoDB']
+      backgroundImageUrl: 'background-images/cards/project-card/left2.jpg',
+      tags: ['API', 'Node.js']
     },
     {
       title: 'Project three',
       description: 'Second project description',
-      backgroundImageUrl: 'src/app/shared/background-images/cards/project-card/project-card1.jpg',
+      backgroundImageUrl: 'background-images/cards/project-card/left3.png',
       tags: ['API', 'Node.js', 'MongoDB']
     },
     {
       title: 'Project four',
       description: 'Second project description',
-      backgroundImageUrl: 'src/app/shared/background-images/cards/project-card/project-card1.jpg',
-      tags: ['API', 'Node.js', 'MongoDB']
-    },
-    {
-      title: 'Project five',
-      description: 'Second project description',
-      backgroundImageUrl: 'src/app/shared/background-images/cards/project-card/project-card1.jpg',
-      tags: ['API', 'Node.js', 'MongoDB']
+      backgroundImageUrl: 'background-images/cards/project-card/left4.jpg',
+      tags: ['API', 'Node.js']
     }
-    // Add more as needed
+   
   ]
 
 

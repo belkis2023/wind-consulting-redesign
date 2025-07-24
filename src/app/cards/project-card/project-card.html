@@ -1,16 +1,18 @@
-<div class="relative top-4 w-7/12 h-56 md:max-w-md lg:h-64 mr-8 md:mb-4 rounded-full"
+<div class="relative w-9/12 top-4 md:w-5/12 h-72 mr-8 md:mb-4 rounded-full"
     >
     <!-- Bottom base Layer: the blue -->
-    <div class="absolute inset-0 rounded-xl bg-wind-blue z-0 flex text-white
-                subtle-inner-shadow">
+    <div class="absolute inset-0 rounded-xl z-0 flex text-white
+                subtle-inner-shadow"
+            [ngClass]="bgColor">
     </div>
+
 
     <!-- the top layer: image + shadow + content -->
     <div class="absolute inset-0 z-10 rounded-full flex text-white">
         <!-- image + shadow -->
         <div class="hidden md:block h-full w-5/12 flex-shrink-0 relative">
             <!-- image -->
-            <img src="background-images/cards/project-card/left1.jpg"
+            <img [src]="project.backgroundImageUrl"
                 class="w-full h-full custom-curve object-cover z-10 rounded-xl">
             <!-- shadow -->
             <div class="absolute -z-10 bg-slate-400/70 w-full h-full left-2 top-0 custom-curve"></div>
@@ -20,8 +22,8 @@
         <div class="flex flex-col space-y-8 space-x-8 flex-wrap w-full">
             <!-- tags -->
             <div class="flex flex-row-reverse gap-3 mt-4 !mr-4">
-                <div *ngFor="let tag of project.tags">
-                    <app-project-tag [tag] = "tag"></app-project-tag>
+                <div *ngFor="let tag of project.tags; let i = index">
+                    <app-project-tag [tagColor] =  calculatedTagColors[i] [tag] = 'tag'></app-project-tag>
                 </div>
             </div>
 
@@ -36,7 +38,7 @@
             </div>
 
             <!-- bottom arrow -->
-            <div class="flex justify-end !mr-5 !mb-5">
+            <div class="flex justify-end absolute bottom-0 right-0 px-4 py-4">
                 <app-circular-button icon="arrow-up-right" [outline]="true" outlineColor="border-wind-blue"></app-circular-button>
             </div>
 

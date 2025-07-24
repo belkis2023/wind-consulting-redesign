@@ -15,6 +15,8 @@ import { ProjectCard } from "../cards/project-card/project-card";
 export class ProjectsSection {
   projects$!: Observable<project[]>;
   
+  bgColors: string[] = [ 'bg-wind-blue', 'bg-links-blue' ];
+
   constructor(private ProjectsService: Projects) {
     this.projects$ = this.ProjectsService.getProjects$();
   }

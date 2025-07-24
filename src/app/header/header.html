@@ -4,9 +4,9 @@
 
   <!-- The logo -->
   <div class="text-xl font-bold">
-    <img src="logo-wind.png" alt="logo" class="h-15 w-auto  
+    <img src="logo-wind.png" alt="logo" class="h-20 w-32
         xs:w-[50px] xs:h-[50px]  
-        sm:h-20 sm:w-auto" />
+        sm:h-20 sm:w-20" />
   </div>
 
   <!-- Desktop View -->
@@ -33,11 +33,7 @@
 
   <!-- Contact us + Search button -->
   <div class="hidden md:flex items-center gap-6 text-primary ml-auto">
-    <button class="bg-gradient-to-r from-blue-500 to to-blue-700 text-white !rounded-full px-6 py-2
-      w-[150px] 
-      lg:w-[180px]">
-      Contact us
-    </button>
+    <app-button-with-background></app-button-with-background>
     <!-- the search button on desktop view -->
     <button (click)="toggleDesktopSearch()">
       <svg  *ngIf="!isSearchOpen" class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">

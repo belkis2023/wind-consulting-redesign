@@ -1,33 +1,16 @@
-<section id="scroll-container" class="relative h-[200vh]">
-    <div class="sticky top-0 h-screen flex items-center justify-center overflow-hidden pr-20">
+<section class="relative items-center overflow-hidden" id="scroll-container" appGlobeProjectsScroll>
 
+    <div>
         <!-- Globe -->
-        <div id="globe" [ngClass]="{
-        'scale-100 translate-x-0': !globeScaled && !projectsVisible,
-        'scale-110 translate-x-0 ': globeScaled && !projectsVisible,
-        'scale-110 translate-x-1/4 ': projectsVisible
-      }" class="transition-transform duration-700">
+        <div id="globe" class="h-[100vh]">
             <app-globe [locations]="locations"></app-globe>
         </div>
 
-        <!-- container to trigger the globe scaling -->
-        <div appObserveIntersection [threshold]="0.1" (visibleChange)="globeScaled = $event"
-            class="w-full h-[1px] mt-[80vh]">
-        </div>
         <!-- Projects -->
-        <div id="projects" [ngClass]="{
-        '-translate-x-full opacity-0': !projectsVisible,
-        'translate-x-0 opacity-100 ': projectsVisible
-      }" class="absolute !top-16 left-0 w-full h-full transition-all duration-700">
+        <div id="projects" class="h-[80%] -z-10">
             <app-projects-section></app-projects-section>
-        </div>
-        <!-- container to trigger the globe sliding to the right and the projects appearing -->
-        <div appObserveIntersection [threshold]="0.1" (visibleChange)="projectsVisible = $event"
-            class="w-full h-[1px] mt-[100vh]">
         </div>
 
     </div>
-
-
 
 </section>
