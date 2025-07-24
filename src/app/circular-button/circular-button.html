@@ -1,0 +1,31 @@
+<button [ngClass]="[bgColor, textColor, size, 
+                    'rounded-full flex items-center justify-center',
+                    outline ? 'border-1' : '',
+                    outline ? outlineColor : ''
+                    ]">
+    <!-- Depending on the chosen icon, we will show what svg we want -->
+    <ng-container [ngSwitch]="icon">
+
+        <!-- arrow up right -->
+        <svg *ngSwitchCase="'arrow-up-right'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            stroke-width="1.5" class="size-4 stroke-wind-blue">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+        </svg>
+
+        <!-- + -->
+        <svg *ngSwitchCase="'plus'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            stroke-width="1.5" class="size-6 stroke-wind-blue">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+        </svg>
+
+
+        <!-- x mark -->
+        <svg *ngSwitchCase="'x-mark'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
+            stroke-width="1.5" class="size-6 stroke-wind-blue">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+
+
+    </ng-container>
+</button>
+

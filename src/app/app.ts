@@ -5,12 +5,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Hero } from "./hero/hero";
 import { Globe } from "./globe/globe/globe";
 import { GenericTitle } from "./generic-title/generic-title/generic-title";
-import { LocationProvider } from './services/location-provider';
+import { LocationProvider } from './services/location-provider/location-provider';
 import { Location } from './models/location';
+import { ProjectsSection } from "./projects-section/projects-section";
+import { ScrollSection } from "./scroll-section/scroll-section";
 
 @Component({
   selector: 'app-root',
-  imports: [Header, Hero, Globe, GenericTitle],
+  imports: [Header, Hero, GenericTitle, ScrollSection],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

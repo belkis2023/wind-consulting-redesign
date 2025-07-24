@@ -1,0 +1,5 @@
+<div class="w-full h-full flex flex-col md:!flex-col p-4">
+    <div *ngFor="let project of projects$ | async">
+        <app-project-card [project] = "project"></app-project-card>
+    </div>
+</div>

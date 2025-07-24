@@ -3,7 +3,7 @@ import GlobeGl from 'globe.gl';
 import * as THREE from 'three';
 import * as topojson from 'topojson-client';
 import { Marker } from '../../marker/marker/marker';
-import { CountryGeoService } from '../../services/country-geo';
+import { CountryGeoService } from '../../services/country-geo/country-geo'
 import { Location } from '../../models/location';
 
 
