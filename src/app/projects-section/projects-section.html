@@ -1,0 +1,7 @@
+<div class="w-full h-full flex flex-col md:!flex-col pl-24 m-0 shrink-0 ">
+    <div *ngFor="let project of projects$ | async; let i = index">
+        <app-project-card [bgColor] ="i % 2 === 0 ? bgColors[0] : bgColors[1]" 
+                        [project] = "project">
+        </app-project-card>
+    </div>
+</div>

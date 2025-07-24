@@ -1,6 +1,35 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme {
-  --color-wind-blue: #0079be; 
-  --color-links-blue: #182864;
+@layer base {
+
 }
+
+@layer components {
+
+}
+
+@layer utilities {
+  
+    
+
+    .drop-shadow-soft-white {
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15));
+    }
+
+    .custom-curve {
+        clip-path: ellipse(90% 100% at 5% 50%);
+    }
+
+    .custom-curve1 {
+        clip-path: ellipse(90% 100% at 5% 50%);
+    }
+
+    .drop-shadow-curve {
+       filter: drop-shadow(0px 10px 5px rgba(0,0,0,0.1))
+    }
+
+}
+
+
