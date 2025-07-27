@@ -1,0 +1,22 @@
+<div class="relative flex flex-col px-4 py-6 h-[100vh]">
+    <div class="space-y-4 overflow-auto">
+        <div class="flex flex-row items-center justify-between" 
+            *ngFor="let service of services">
+            <a href="#" class="!block !text-links-blue !py-2 !text-xl !font-medium transition-colors !no-underline">
+                {{ service }}
+            </a>
+            <app-icon [icon]="'arrow-up-right'" 
+                    strokeColor="stroke-links-blue"
+                    [strokeWidth]=2></app-icon>
+        </div>
+    </div>
+    <div class="absolute top-[60vh] left-1/4">
+        <app-button-with-background backgroundImageUrl="background-images/generic-background/background1.svg"
+            label="Contacter Nous" width="w-[50vw]" height="h-10" [logo]=true logoSize="size-10"
+            backgroundPosition="bottom">
+
+        </app-button-with-background>
+    </div>
+
+
+</div>

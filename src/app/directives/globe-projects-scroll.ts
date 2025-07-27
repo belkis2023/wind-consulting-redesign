@@ -47,7 +47,7 @@ export class GlobeProjectsScroll {
         start: "30% center",
         end: "+=400", ////
         scrub: 0.5,
-        animation: gsap.to(".globeWrapper", { opacity: 1, scale: 1.2, ease: "power2.inOut" }),
+        animation: gsap.to(".globeWrapper", { opacity: 1, scale: 1.4, ease: "power2.inOut" }),
 
       });
 
@@ -57,7 +57,7 @@ export class GlobeProjectsScroll {
         endTrigger: '#projects',
         end: "bottom bottom",
         toggleActions: "play none none reverse",
-        animation: gsap.to(".globeWrapper", { xPercent: 20, duration: 0.5, ease: "power2.out" }),
+        animation: gsap.to(".globeWrapper", { xPercent: 10, duration: 0.5, ease: "power2.out" }),
       });
 
 

@@ -2,12 +2,15 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { ButtonWithBackground } from "../buttons/button-with-background/button-with-background";
+import { HamburgerMenu } from "./hamburger-menu/hamburger-menu";
+import { CircularButton } from "../buttons/circular-button/circular-button";
+import { MobMenuItems } from "./mob-menu-items/mob-menu-items";
 
 
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, ButtonWithBackground],
+  imports: [CommonModule, ButtonWithBackground, HamburgerMenu, CircularButton, MobMenuItems],
   templateUrl: './header.html',
   styleUrl: './header.css',
 
@@ -18,6 +21,8 @@ export class Header implements AfterViewInit {
   mobileSearch = false;
   desktopSearch = false;
   searchBarHeight = 0;
+
+  Services = ['Qui Sommes Nous', 'Expertises', 'Nos Services', 'Carrière']
 
   //this is so the search bar is directly under the navbar
   @ViewChild('navbar') navbar!: ElementRef;
@@ -30,18 +35,9 @@ export class Header implements AfterViewInit {
 
     const navbarHeight = this.navbar.nativeElement.offsetHeight;
     document.body.style.paddingTop = navbarHeight + 'px';
-  /*   const searchbarHeight = this.menuItems.nativeElement.offsetHeight;
-    document.body.style.paddingTop = this.menuItems + 'px'; */
     
   }
 
-
-
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
-  }
-
-  
   toggleMobileSearch() {
     this.isSearchOpen = !this.isSearchOpen;
     this.mobileSearch = !this.mobileSearch;

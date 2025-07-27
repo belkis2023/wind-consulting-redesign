@@ -1,7 +1,24 @@
-<button class="bg-no-repeat bg-cover bg-center text-white font-semibold rounded-md" 
-    [ngClass]="[height, width]"
-    [ngStyle]="{
-    'background-image': 'url(' + backgroundImageUrl + ')'
-  }">
+<button class="relative bg-no-repeat bg-cover rounded-full"
+  [ngClass]="[height, width, bgColor, textColor]">
+  <div class="absolute inset-0 bg-no-repeat bg-cover rounded-full"  
+      [ngClass]="imageOpacity"
+      [ngStyle]="{
+    'background-image': 'url(' + backgroundImageUrl + ')',
+    'background-position': backgroundPosition
+    }">
+  </div>
+  
+  <div *ngIf="logo" 
+    class="absolute left-0 z-30 opacity-30 inset-y-0 bg-contain">
+    <app-icon [icon] = whichLogo [logoSize]=logoSize>
+    </app-icon>
+  </div>
+
+  <span class="absolute flex inset-0 items-center justify-center font-normal">
     {{ label }}
+  </span>
+  <div *ngIf="icon" class="absolute right-4 top-1/2 -translate-y-1/2">
+    <app-icon [icon]="icon" [strokeColor]="strokeColor" [strokeWidth]="strokeWidth">
+    </app-icon>
+  </div>
 </button>

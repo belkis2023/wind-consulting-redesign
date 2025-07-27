@@ -1,199 +1,130 @@
 <nav #navbar class="!fixed top-0 h-20 left-0 w-full z-50 bg-white 
-  flex justify-between items-center p-4 shadow-md gap-12
-  md:justify-start ">
+  flex justify-between !items-center shadow-md gap-12 !px-10 lg:!px-16 
+  md:justify-start navbarBackground">
 
   <!-- The logo -->
   <div class="text-xl font-bold">
     <img src="logo-wind.png" alt="logo" class="h-20 w-32
         xs:w-[50px] xs:h-[50px]  
-        sm:h-20 sm:w-20" />
+        sm:h-16 sm:w-30" />
   </div>
 
   <!-- Desktop View -->
 
   <!-- the links on the navbar -->
   <div class="hidden md:flex items-center gap-6 text-primary">
-    <a href="#" class="!block !text-links-blue !py-2 !text-l 
-    !font-medium transition-colors !no-underline">
-      Test1
-    </a>
-    <a href="#" class="!block !text-links-blue !py-2 !text-l 
-    !font-medium transition-colors !no-underline">
-      Test1
-    </a>
-    <a href="#" class="!block !text-links-blue !py-2 !text-l 
-    !font-medium transition-colors !no-underline">
-      Test1
-    </a>
-    <a href="#" class="!block !text-links-blue !py-2 !text-l 
-    !font-medium transition-colors !no-underline">
-      Test1
-    </a>
+    <div *ngFor="let service of Services">
+      <a href="#" class="!block !text-links-blue !py-2 !text-l 
+        !font-medium transition-colors !no-underline">
+        {{ service }}
+      </a>
+    </div>
+
   </div>
 
   <!-- Contact us + Search button -->
   <div class="hidden md:flex items-center gap-6 text-primary ml-auto">
-    <app-button-with-background></app-button-with-background>
+
+    <!-- The contact us button -->
+    <div>
+      <app-button-with-background backgroundImageUrl="background-images/generic-background/background1.svg"
+        label="Contacter Nous" width="w-48" height="h-10"
+        [logo]=true logoSize="size-10" backgroundPosition="bottom">
+
+      </app-button-with-background>
+    </div>
+
     <!-- the search button on desktop view -->
     <button (click)="toggleDesktopSearch()">
-      <svg  *ngIf="!isSearchOpen" class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
-      </svg>
+      <div *ngIf="!isSearchOpen">
+        <app-circular-button icon="search" size="w-12 h-12" strokeColor="stroke-links-blue"
+          [strokeWidth]=2></app-circular-button>
+      </div>
 
       <!-- Show X when search is open -->
-      <svg *ngIf="isSearchOpen" class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" 
-          d="M6 18L18 6M6 6l12 12" />
-      </svg>
+      <div *ngIf="isSearchOpen">
+        <app-circular-button icon="x-mark" size="w-12 h-12" strokeColor="stroke-links-blue"
+          [strokeWidth]=2></app-circular-button>
+      </div>
     </button>
   </div>
 
   <!-- Mobile View -->
-  
+
   <!-- 1-Hamburger menu-->
   <div class="md:hidden order-[-1]">
-    <button class="relative" (click)="toggleMenu()">
-      <div
-        class="relative flex overflow-hidden items-center justify-center rounded-full 
-        transition-all bg-wind-blue ring-0 ring-gray-300 
-        hover:ring-8 focus:ring-4 ring-opacity-30 duration-200 shadow-md
-        w-[45px] h-[45px]     
-        xs:w-[50px] xs:h-[50px]  
-        sm:w-[55px] sm:h-[55px]">
-        <div
-          class="flex flex-col justify-between w-[20px] h-[20px] transition-all duration-300 origin-center overflow-hidden">
-          <!-- Hamburger lines -->
-          <div class="bg-white h-[2px] w-7 transform transition-all duration-300 origin-left" [ngClass]="{
-            'rotate-41 ': isMenuOpen,
-            'rotate-0': !isMenuOpen
-          }"></div>
-          <div class="bg-white h-[2px] w-7 rounded transform transition-all duration-300" [ngClass]="{
-            'opacity-0': isMenuOpen,
-            'opacity-100': !isMenuOpen
-          }"></div>
-          <div class="bg-white h-[2px] w-7 transform transition-all duration-300 origin-left" [ngClass]="{
-            '-rotate-41': isMenuOpen,
-            'rotate-0': !isMenuOpen
-          }"></div>
-        </div>
-      </div>
-    </button>
-    
+    <app-hamburger-menu [(isMenuOpen)]="isMenuOpen"></app-hamburger-menu>
   </div>
 
   <!-- 2-the search bar in the mobile view-->
   <div class="md:hidden inline-block">
-    <button class="relative rounded-full hover:bg-gray-100 transition-colors" (click)="toggleMobileSearch()">
+    <button (click)="toggleMobileSearch()">
       <!-- Show search when menu is closed -->
-      <svg *ngIf="!isSearchOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor"
-        class="w-[46px] h-[46px]     
-          xs:w-[56px] xs:h-[56px]
-          sm:w-[61px] sm:h-[61px]">
-        <path stroke-linecap="round" stroke-linejoin="round"
-          d="m15.75 15.75-2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774ZM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      
+
+      <div *ngIf="!isSearchOpen">
+        <app-circular-button icon="search" [outline]="true" outlineColor="border-links-blue" size="w-12 h-12"
+          [strokeWidth]=2 outlineWidth="border-2" strokeColor="stroke-links-blue">
+        </app-circular-button>
+      </div>
+
       <!-- Show X when search is open -->
-      <svg *ngIf="isSearchOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
-        stroke-width="1" stroke="currentColor"
-        class="w-[46px] h-[46px]     
-          xs:w-[56px] xs:h-[56px]
-          sm:w-[61px] sm:h-[61px]">
-        <path stroke-linecap="round" stroke-linejoin="round" 
-          d="m8 8 8 8m0-8L8 16M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
+
+      <div *ngIf="isSearchOpen">
+        <app-circular-button icon="x-mark" strokeColor="stroke-links-blue" [strokeWidth]=2 [outline]=true
+          outlineWidth="border-2" outlineColor="border-links-blue" size="w-12 h-12">
+        </app-circular-button>
+      </div>
     </button>
   </div>
-    
+
 
 </nav>
 
 <!-- Mobile + desktop Menu search open -->
 <!-- here is the logic: - if search is cliked on either desktop or mobile we show the search edge-to-edge input-->
-<div #searchBar class="fixed bg-white left-0 right-0 z-50"
-  [ngClass]="{
+<div #searchBar class="fixed bg-white left-0 right-0 z-50 h-20" [ngClass]="{
        'block': isSearchOpen,
-       'hidden': !isSearchOpen
+       'hidden': !isSearchOpen, 
      }">
   <!-- Search input -->
   <div class="relative flex !w-full">
     <div class="!w-full">
-      <input 
-        type="text" 
-        placeholder="Search..." 
-        class="w-full px-4 py-4 pr-16 pl-4 text-gray-700 bg-gray-100 
+      <input type="text" placeholder="Quel Sujet Vous Intéresse?" 
+      class="w-full absolute pl-12 h-20 text-gray-700 bg-gray-100 
         focus:outline-none focus:ring-2
         focus:ring-wind-blue focus:border-transparent duration-200
         rounded-none
-        sm:pr-20"
-        #searchInput
-        
-      />
+        sm:pr-20" #searchInput />
     </div>
-    
+
     <!-- Mobile Search -->
     <!-- Clickable search icon on the right -->
-    <div>
-      <button class=" md:hidden absolute inset-y-0 right-0 flex items-center pr-4" 
-           >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
-          class="w-[46px] h-[46px]     
-            xs:w-[56px] xs:h-[56px]
-            sm:w-[61px] sm:h-[61px]">
-          <!-- Blue circle background -->
-          <circle cx="12" cy="12" r="12" fill="#182863"/>
-          <!-- White magnifier -->
-          <path stroke="white" stroke-width="1.5" fill="none" 
-          stroke-linecap="round" stroke-linejoin="round" 
-            d="m16.5 16.5-2.5-2.5m0 0a3.5 3.5 0 1 0-4.95-4.95 3.5 3.5 0 0 0 4.95 4.95Z" />
-        </svg>
-      </button>
+
+    <div class="md:hidden absolute !right-0 top-1/4 translate-y-1/4 pr-10">
+      <app-circular-button icon="search" [outline]="true" outlineColor="border-links-blue" bgColor="bg-links-blue"
+        size="w-12 h-12" [strokeWidth]=2 outlineWidth="border-2" strokeColor="stroke-white"
+        bgImage="background-images/generic-background/background1.svg">
+      </app-circular-button>
     </div>
 
-    
 
     <!-- Desktop Search -->
-    <button class="hidden md:block bg-gradient-to-r
-     from-blue-500 to to-blue-700 text-white items-center
-     !rounded-full px-6 py-2 absolute inset-y-0 right-0 
-      w-[150px] 
-      lg:w-[180px]
-      !mt-3 !mb-3 !mr-12">
-      Search
-    </button>
+    <div class="hidden md:block md:absolute md:right-28 lg:right-32 translate-y-1/3">
+      <app-button-with-background backgroundImageUrl="background-images/generic-background/background1.svg"
+        label="Recherche" width="w-48" height="h-10" icon="search" strokeColor="stroke-white" [strokeWidth]=2
+        [logo]=true backgroundPosition="bottom" logoSize="size-10">
+
+      </app-button-with-background>
+    </div>
 
   </div>
 </div>
 
 
 <!-- Mobile Menu items -->
-<div [style.marginTop.px]="searchBarHeight" class="fixed md:hidden bg-white shadow-b-lg left-0 right-0 z-50" 
-     [ngClass]="{
+<div [style.marginTop.px]="searchBarHeight" class="fixed md:hidden bg-white shadow-b-lg left-0 right-0 z-50" [ngClass]="{
        'block': isMenuOpen,
        'hidden': !isMenuOpen
      }">
-  <div class="px-4 py-6 space-y-4">
-    <a href="#" class="!block !text-links-blue !py-2 !text-xl !font-medium transition-colors !no-underline">
-      Test1
-    </a>
-    <a href="#" class="!block !text-links-blue !py-2 !text-xl !font-medium transition-colors !no-underline">
-      Test2
-    </a>
-    <a href="#" class="!block !text-links-blue !py-2 !text-lg !font-medium transition-colors !no-underline">
-      Test3
-    </a>
-    <a href="#" class="!block !text-links-blue !py-2 !text-lg !font-medium transition-colors !no-underline">
-      Test4
-    </a>
-    <a href="#" class="!block !text-links-blue !py-2 !text-lg !font-medium transition-colors !no-underline">
-      Test5
-    </a>
- 
-  </div>
+  <app-mob-menu-items [services]="Services"></app-mob-menu-items>
 </div>
-
-
-
-
-

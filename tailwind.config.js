@@ -8,6 +8,7 @@ module.exports = {
       colors: {
         'wind-blue': '#0079be',
         'links-blue': '#182864',
+        'button-back': '#066095'
       },
     },
   },

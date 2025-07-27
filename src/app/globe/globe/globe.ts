@@ -44,13 +44,14 @@ export class Globe implements AfterViewInit {
 
     globe.scene().add(new THREE.AmbientLight(0xffffff, 0.7));
     globe.scene().add(new THREE.DirectionalLight(0xffffff, 0.6));
+    const camera = globe.camera();
+    camera.position.z = 280;
     const controls = globe.controls();
     controls.autoRotate = true;
     controls.autoRotateSpeed = 0.4;
     controls.enableZoom = false;
 
     const tunisiaCentroid = this.countryGeoService.getCountryCentroidByName("Tunisia");
-    console.log('Tunisia centroid:', tunisiaCentroid);
 
     if (globe) {
       this.renderMarkers(globe);

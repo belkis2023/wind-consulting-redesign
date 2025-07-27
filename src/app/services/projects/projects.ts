@@ -11,28 +11,28 @@ export class Projects {
   private projects: project[] = [
 
     {
-      title: 'Project One',
-      description: 'First project description',
+      title: 'Consulting',
+      description: 'Découvrez le consulting stratégique.',
       backgroundImageUrl: 'background-images/cards/project-card/left1.jpg',
-      tags: ['Angular', 'TypeScript', 'Tailwind']
+      tags: ['Transformation Digitale', 'programmes', 'Analytics']
     },
     {
-      title: 'Project Two',
-      description: 'Second project description',
+      title: 'Outsourcing',
+      description: 'Découvrez l externalisation sur mesure.',
       backgroundImageUrl: 'background-images/cards/project-card/left2.jpg',
-      tags: ['API', 'Node.js']
+      tags: ['Tierce Maintenance Applicative', 'Sourcing IT']
     },
     {
-      title: 'Project three',
-      description: 'Second project description',
+      title: 'Digital',
+      description: 'Bénéficiez d un consulting digital expert.',
       backgroundImageUrl: 'background-images/cards/project-card/left3.png',
-      tags: ['API', 'Node.js', 'MongoDB']
+      tags: ['Stratégie digitale', 'Développement', 'Big Data']
     },
     {
-      title: 'Project four',
-      description: 'Second project description',
+      title: 'Technologie',
+      description: 'Bénéficiez des conseil technologique indépendant.',
       backgroundImageUrl: 'background-images/cards/project-card/left4.jpg',
-      tags: ['API', 'Node.js']
+      tags: ['back-End', 'Front-End']
     }
    
   ]
