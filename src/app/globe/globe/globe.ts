@@ -62,8 +62,6 @@ export class Globe implements AfterViewInit {
   }
 
 
-
-
   //adding locations
   renderMarkers(globeInstance: any) {
     globeInstance

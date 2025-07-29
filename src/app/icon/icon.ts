@@ -8,9 +8,11 @@ import { Component, Input } from '@angular/core';
   styleUrl: './icon.css'
 })
 export class Icon {
-  @Input() icon: 'arrow-up-right' | 'plus' | 'x-mark' | 'hamburger-menu' | 'search' | 'logoWhite' | 'logoBlue' = 'arrow-up-right';
+  @Input() icon: 'arrow-up-right' | 'plus' | 'x-mark' | 'hamburger-menu' | 'search' | 'logoWhite' | 'logoBlue' | 'left-scroll' | 'right-scroll' = 'arrow-up-right';
   @Input() strokeWidth: number = 1.5;
   @Input() strokeColor: string = 'stroke-wind-blue';
   @Input() logoSize: string = "size-10"
+  @Input() hasBackgroundImage: boolean = false;
+  @Input() imgUrl!: string;
 
 }

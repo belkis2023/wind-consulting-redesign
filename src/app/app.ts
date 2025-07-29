@@ -8,10 +8,11 @@ import { LocationProvider } from './services/location-provider/location-provider
 import { Location } from './models/location';
 import { ProjectsSection } from "./projects-section/projects-section";
 import { ScrollSection } from "./scroll-section/scroll-section";
+import { ClientsScrollbar } from "./clients-scrollbar/clients-scrollbar";
 
 @Component({
   selector: 'app-root',
-  imports: [Header, Hero, GenericTitle, ScrollSection],
+  imports: [Header, Hero, GenericTitle, ScrollSection, ClientsScrollbar],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

@@ -48,7 +48,7 @@ export class GlobeProjectsScroll {
         end: "+=400", ////
         scrub: 0.5,
         animation: gsap.to(".globeWrapper", { opacity: 1, scale: 1.4, ease: "power2.inOut" }),
-
+        
       });
 
       this.stMove = ScrollTrigger.create({

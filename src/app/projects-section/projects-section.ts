@@ -26,45 +26,41 @@ export class ProjectsSection implements AfterViewInit {
 
   ngAfterViewInit(): void {
     //the horizontal carousel logic
-    const slides = document.querySelector(".slides");
-
-    // 🌟 Fade-in effect
-    gsap.from(slides, {
-      autoAlpha: 0,
-      duration: 1,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: slides,
-        start: '-50% 80%',
-        toggleActions: 'play none none none',
-      },
-    });
+    if (window.innerWidth < 768) {
+      const slides = document.querySelector(".slides");
 
 
-    if (slides) {
-      const tween = gsap.to(slides, {
-        ease: 'none',
-        //using this function we'll know how much scrolling we have to do based on the 
-        //slides (aka the projects) width
-        x: () => -(slides.scrollWidth - slides.getBoundingClientRect().width),
-      });
+      if (slides) {
+        // 🌟 Fade-in effect
+        gsap.from(slides, {
+          autoAlpha: 0,
+          duration: 1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: slides,
+            start: '-50% 80%',
+            toggleActions: 'play none none none',
+          },
+        });
+        const tween = gsap.to(slides, {
+          ease: 'none',
+          //using this function we'll know how much scrolling we have to do based on the 
+          //slides (aka the projects) width
+          x: () => -(slides.scrollWidth - slides.getBoundingClientRect().width),
+        });
 
-      ScrollTrigger.create({
-        trigger: slides,
-        start: "-80% top",
-        end: "+=400%",
-        scrub: true,
-        pin: true,
-        animation: tween,
-        invalidateOnRefresh: true,
-      })
+        ScrollTrigger.create({
+          trigger: slides,
+          start: "-80% top",
+          end: "+=400%",
+          scrub: true,
+          pin: true,
+          animation: tween,
+          invalidateOnRefresh: true,
+        })
 
+      }
     }
   }
-
-
-
-
-
 
 }

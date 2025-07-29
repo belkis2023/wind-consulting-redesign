@@ -1,0 +1,12 @@
+<div class="flex justify-center items-center relative w-44 h-32 rounded-xl">
+    <div class="absolute inset-0 bg-[url('/background-images/clients/background-client.jpg')] 
+            bg-cover
+            rounded-xl">
+    </div>
+    <div class="relative z-10">
+        <img [src]="clientLogoData.path" [alt]="clientName" 
+            [ngClass]="[clientLogoData.height, clientLogoData.width]">
+    </div>
+    
+</div>
+

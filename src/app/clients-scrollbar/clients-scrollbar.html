@@ -1,1 +1,41 @@
-<p>clients-scrollbar works!</p>
+<div class="flex flex-col gap-4">
+    <hr class="border-2 w-[90%] mx-auto border-wind-blue">
+    <app-generic-title size="medium">
+        <span class="text-blue-600">Clients </span>qui nous font confiance
+    </app-generic-title>
+    <div>
+        <div class="flex flex-col md:flex-row w-full md:px-4 items-center justify-between">
+            <app-circular-button class="md:pr-8"
+                                (click) ="scrollClients('left')" 
+                                [icon]="'left-scroll'"
+                                [bgColor]="'bg-wind-blue'"
+                                [strokeColor]="'stroke-white'"
+                                [strokeWidth]=2
+                                bgImage="background-images/generic-background/background1.svg">
+
+            </app-circular-button>
+           <div #clientScrollContainer class="overflow-x-auto flex 
+                                            scroll-smooth no-scrollbar
+                                            flex-1 gap-14"
+                                            >
+                <div class="inline-block" *ngFor="let client of clients; let i = index">
+                    <app-client-card [clientName]="client" 
+                                    [clientLogoData] = "getClientLogoData(client)">
+                    </app-client-card>
+                </div>
+           </div>
+            <app-circular-button class="md:pl-8"
+                                (click) ="scrollClients('right')" 
+                                [icon]="'right-scroll'"
+                                [bgColor]="'bg-wind-blue'"
+                                [strokeColor]="'stroke-white'"
+                                [strokeWidth]=2
+                                bgImage="background-images/generic-background/background1.svg">
+
+            </app-circular-button>
+        </div>
+        <app-scroll-pagination [scrollContainer]="clientScrollContainer"></app-scroll-pagination>
+    </div>
+    
+</div>
+
