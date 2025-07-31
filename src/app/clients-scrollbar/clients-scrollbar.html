@@ -3,39 +3,49 @@
     <app-generic-title size="medium">
         <span class="text-blue-600">Clients </span>qui nous font confiance
     </app-generic-title>
-    <div>
-        <div class="flex flex-col md:flex-row w-full md:px-4 items-center justify-between">
-            <app-circular-button class="md:pr-8"
-                                (click) ="scrollClients('left')" 
-                                [icon]="'left-scroll'"
-                                [bgColor]="'bg-wind-blue'"
-                                [strokeColor]="'stroke-white'"
-                                [strokeWidth]=2
-                                bgImage="background-images/generic-background/background1.svg">
+    <!-- grid layout -->
+    <div class="grid grid-cols-3 md:grid-cols-[1fr_9fr_1fr] grid-rows-2 gap-4 items-center">
 
-            </app-circular-button>
-           <div #clientScrollContainer class="overflow-x-auto flex 
-                                            scroll-smooth no-scrollbar
-                                            flex-1 gap-14"
-                                            >
-                <div class="inline-block" *ngFor="let client of clients; let i = index">
-                    <app-client-card [clientName]="client" 
-                                    [clientLogoData] = "getClientLogoData(client)">
-                    </app-client-card>
+            <!-- left button -->
+            <div class="col-span-1 row-start-2 md:col-start-1 md:row-start-1 flex justify-end md:justify-end">
+                <app-circular-button class="md:pr-8" (click)="scrollClients('left')" [icon]="'left-scroll'"
+                    [bgColor]="'bg-wind-blue'" [strokeColor]="'stroke-white'" [strokeWidth]=2
+                    bgImage="background-images/generic-background/background1.svg">
+
+                </app-circular-button>
+            </div>
+
+            <!-- cards -->
+            <div class="col-span-3 row-start-1 md:col-span-1 md:col-start-2 overflow-hidden">
+                <div #clientScrollContainer class="overflow-x-auto flex
+                                            scroll-smooth no-scrollbar px-6 md:px-0
+                                            flex-1 gap-14">
+                    <div class="inline-block" *ngFor="let client of clients; index as i">
+                        <app-client-card [clientName]="client" [clientLogoData]="getClientLogoData(client)">
+                        </app-client-card>
+                    </div>
                 </div>
-           </div>
-            <app-circular-button class="md:pl-8"
-                                (click) ="scrollClients('right')" 
-                                [icon]="'right-scroll'"
-                                [bgColor]="'bg-wind-blue'"
-                                [strokeColor]="'stroke-white'"
-                                [strokeWidth]=2
-                                bgImage="background-images/generic-background/background1.svg">
+            </div>
 
-            </app-circular-button>
-        </div>
-        <app-scroll-pagination [scrollContainer]="clientScrollContainer"></app-scroll-pagination>
+            <!-- right button -->
+            <div class="col-span-1 row-start-2 md:row-start-1 md:col-start-3 flex justify-start md:justify-start">
+                <app-circular-button class="md:pl-8" (click)="scrollClients('right')" [icon]="'right-scroll'"
+                    [bgColor]="'bg-wind-blue'" [strokeColor]="'stroke-white'" [strokeWidth]=2
+                    bgImage="background-images/generic-background/background1.svg">
+
+                </app-circular-button>
+            </div>
+
+            <!-- pagination -->
+            <div class="col-span-1 col-start-2 row-start-2 flex justify-center
+                        md:col-span-3 !items-center">
+                <app-scroll-pagination [scrollContainer]="clientScrollContainer"
+                >
+                </app-scroll-pagination>
+            </div>
+
     </div>
-    
+    <!---->
+
 </div>
 

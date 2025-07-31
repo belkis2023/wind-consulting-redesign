@@ -13,8 +13,14 @@
 }
 
 @layer utilities {
-  
-    
+
+  .navbar-background {
+    background-image: url("../public/background-images/navbar-background.jpg");
+    background-size: 100%;
+    background-attachment: fixed;
+    background-clip: border-box;
+  }
+
 
     .drop-shadow-soft-white {
         filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15));

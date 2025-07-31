@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -11,6 +11,7 @@ export class ScrollPagination implements OnInit, AfterViewInit {
   @Input() scrollContainer!: HTMLDivElement;
   @Input() scrollStep: number = 300;
 
+  @Output() noPages = new EventEmitter<number>();
   pages: number = 0;
   currentPage: number = 0;
 
@@ -19,7 +20,7 @@ export class ScrollPagination implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-      
+
       this.calculatePages();
       this.listenToScroll();
   }
@@ -29,11 +30,14 @@ export class ScrollPagination implements OnInit, AfterViewInit {
     const container = this.scrollContainer;
     const totalScrollableWidth = container.scrollWidth - container.clientWidth;
     this.pages = Math.ceil(totalScrollableWidth / this.scrollStep) +1 ;
+
+    this.noPages.emit(this.pages);
+
   }
 
   listenToScroll() {
     this.scrollListener = () => {
-     
+
       const container = this.scrollContainer;
       this.currentPage = Math.ceil(container.scrollLeft/this.scrollStep);
     };

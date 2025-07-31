@@ -1,11 +1,7 @@
 <app-header></app-header>
 <app-hero></app-hero>
 
-<section class="
-                bg-[url('/background-images/navbar-background.jpg')] 
-                bg-[length:100%] 
-                bg-fixed
-                bg-clip-border
+<section class="navbar-background
                 md:bg-none">
     <section class="z-10 w-full px-20 py-5 whitespace-normal flex justify-center">
         <app-generic-title size="large">
@@ -18,6 +14,10 @@
         <app-scroll-section></app-scroll-section>
     </section>
 </section>
-<section>
+<section class="navbar-background !bg-[length:75%]">
     <app-clients-scrollbar></app-clients-scrollbar>
+</section>
+
+<section>
+  <app-chiffres-cles></app-chiffres-cles>
 </section>
