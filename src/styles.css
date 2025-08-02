@@ -13,6 +13,10 @@
 }
 
 @layer utilities {
+  .specialFont {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+  }
 
   .navbar-background {
     background-image: url("../public/background-images/navbar-background.jpg");
@@ -51,3 +55,6 @@
 }
 
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,1 +1,34 @@
-<p>chiffres-cles works!</p>
+<div class="relative chiffresClesBack overflow-hidden h-full py-5">
+  <div class="absolute w-1/2 md:w-2/5 h-[100%] !z-30 right-0 top-1/2 -translate-y-1/2">
+    <img src="/chiffres-cles/big-logo-back.svg"
+    class="w-full h-full object-cover filter saturate-90">
+  </div>
+  <!-- top logo + text + cards -->
+  <div class="flex flex-col mt-4 justify-center gap-4 items-center">
+    <!-- now the top logo -->
+    <div class="flex justify-center items-center w-32 h-12">
+      <img class="h-full" src="/logo-wind-white.png"/>
+    </div>
+
+    <!-- now the title -->
+    <div class="flex justify-center items-center">
+      <app-generic-title [size]="'small'" [color]="'text-white'">
+        Les chiffres clés de Wind consulting
+      </app-generic-title>
+    </div>
+    <!-- now the description -->
+    <div class="specialFont text-[#59EEFF] text-lg text-center">
+      <p>
+        Wind Consulting vous apporte des solutions d’innovation digitale parfaitement adaptées à vos enjeux d’agilité.
+      </p>
+    </div>
+    <!-- now the cards -->
+    <div class="flex justify-center gap-12 items-center z-40">
+      <div *ngFor="let chiffre of chiffres; let i = index">
+        <app-chiffres-cles-card [chiffreCle] = "chiffre"
+                                [imageUrl]="i%2 === 0? backgroundImages[0]: backgroundImages[1]">
+        </app-chiffres-cles-card>
+      </div>
+    </div>
+  </div>
+  </div>

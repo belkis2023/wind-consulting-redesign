@@ -1,0 +1,4 @@
+.content-div {
+  opacity: 0;
+  transition: opacity 0.1s;
+}

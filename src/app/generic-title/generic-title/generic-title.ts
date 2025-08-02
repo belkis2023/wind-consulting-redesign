@@ -1,14 +1,17 @@
 import { Component, Input } from '@angular/core';
-import { NgClass } from '@angular/common';
+import { NgClass, NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-generic-title',
-  imports: [NgClass],
+  imports: [NgClass, NgStyle],
   templateUrl: './generic-title.html',
-  styleUrl: './generic-title.css'
+  styleUrl: './generic-title.css',
 })
 export class GenericTitle {
-  @Input() size: 'small' | 'medium' | 'large' = 'medium';
+
+  @Input() color: string = 'text-[#172763]';
+  @Input() boldness: string = 'font-normal';
+  @Input() size!: string;
 
   getClass() {
     switch (this.size) {
@@ -22,5 +25,4 @@ export class GenericTitle {
         return '!text-xl md:!text-5xl';
     }
   }
-
 }

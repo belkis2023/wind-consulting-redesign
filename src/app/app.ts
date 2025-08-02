@@ -11,6 +11,7 @@ import { ScrollSection } from "./scroll-section/scroll-section";
 import { ClientsScrollbar } from "./clients-scrollbar/clients-scrollbar";
 import { ChiffresCles } from './chiffres-cles/chiffres-cles';
 
+
 @Component({
   selector: 'app-root',
   imports: [

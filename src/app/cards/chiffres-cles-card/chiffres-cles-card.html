@@ -1,0 +1,30 @@
+<div #card class="relative rounded-xl bg-white w-[27rem] h-[27rem] overflow-hidden
+                                shadow-lg shadow-wind-blue/90"
+      >
+  <!-- image -->
+  <div #imageDiv
+      class="absolute overflow-hidden h-full right-0 top-0 left-0 z-10">
+    <img [src] = imageUrl
+         class="relative w-full h-4/6 rounded-t-xl">
+  </div>
+  <!-- Content (text) -->
+
+  <!-- title -->
+  <div #title class="absolute bottom-9 flex justify-center items-center left-1/2 -translate-x-1/2">
+    <div class="tracking-wider leading-relaxed text-nowrap">
+      <app-generic-title size="medium" boldness="font-bold" color="text-wind-blue">
+        10 <br> Pays d'interventions
+      </app-generic-title>
+    </div>
+  </div>
+
+  <!-- description -->
+  <div #contentDiv class="absolute inset-x-10 inset-y-6 gap-6
+              flex flex-col justify-center items-center text-center content-div">
+
+    <div class="specialFont text-lg text-wrap">
+      {{ chiffreCle }}
+    </div>
+  </div>
+
+</div>

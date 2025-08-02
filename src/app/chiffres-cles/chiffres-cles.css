@@ -1,0 +1,7 @@
+.chiffresClesBack {
+  width: 100%;
+  height: 120vh;
+  background-image: url("/chiffres-cles/chiffres-cles-back-test.svg");
+  background-size: cover;
+  background-position: center;
+}
