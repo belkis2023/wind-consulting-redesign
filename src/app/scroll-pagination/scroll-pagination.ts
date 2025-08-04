@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 export class ScrollPagination implements OnInit, AfterViewInit {
   @Input() scrollContainer!: HTMLDivElement;
   @Input() scrollStep: number = 300;
+  @Input() color: string = 'bg-wind-blue';
 
   @Output() noPages = new EventEmitter<number>();
   pages: number = 0;

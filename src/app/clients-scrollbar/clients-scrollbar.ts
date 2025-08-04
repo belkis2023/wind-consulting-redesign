@@ -6,6 +6,8 @@ import { CircularButton } from "../buttons/circular-button/circular-button";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollPagination } from "../scroll-pagination/scroll-pagination";
+import { ScrollButtons } from '../directives/scroll-buttons';
+import { DetectHorizontalOverflow } from '../directives/detect-horizontal-overflow';
 gsap.registerPlugin(ScrollTrigger);
 
 export type ClientLogoData = {
@@ -16,88 +18,70 @@ export type ClientLogoData = {
 
 @Component({
   selector: 'app-clients-scrollbar',
-  imports: [GenericTitle, CommonModule, ClientCard, CircularButton, ScrollPagination],
+  imports: [
+    GenericTitle,
+    CommonModule,
+    ClientCard,
+    CircularButton,
+    ScrollPagination,
+    ScrollButtons,
+    DetectHorizontalOverflow,
+  ],
   templateUrl: './clients-scrollbar.html',
-  styleUrl: './clients-scrollbar.css'
+  styleUrl: './clients-scrollbar.css',
 })
-export class ClientsScrollbar implements AfterViewInit  {
-
-  @ViewChild('clientScrollContainer' , {static: false})
+export class ClientsScrollbar implements AfterViewInit {
+  @ViewChild('clientScrollContainer', { static: false })
   clientScrollContainer!: ElementRef<HTMLDivElement>;
 
   defaultW: string = 'w-30';
   defaultH: string = 'h-12';
+  showScrollButtons: boolean = false;
 
-/*  pagesCount = 0;
+  /*  pagesCount = 0;
 
   onNoPages(pages:number) {
     this.pagesCount = pages;
     console.log(this.pagesCount);
   } */
 
-  clients = [
-    'i-dair',
-    'worldSoftGroup',
-    'cnam',
-    'ebsys',
-    'sopra hr'
-  ]
+  clients = ['i-dair', 'worldSoftGroup', 'cnam', 'ebsys', 'sopra hr'];
 
   clientLogoData: Record<string, ClientLogoData> = {
     'i-dair': {
-      path: "/background-images/clients/client1.png",
+      path: '/background-images/clients/client1.png',
       width: this.defaultW,
-      height: this.defaultH
+      height: this.defaultH,
     },
-    'worldSoftGroup': {
-      path: "/background-images/clients/client2.png",
+    worldSoftGroup: {
+      path: '/background-images/clients/client2.png',
       width: 'w-28',
-      height: 'h-8'
+      height: 'h-8',
     },
-    'cnam': {
-      path: "/background-images/clients/client3.png",
+    cnam: {
+      path: '/background-images/clients/client3.png',
       width: 'w-28',
-      height: 'h-14'
+      height: 'h-14',
     },
-    'ebsys': {
-      path: "/background-images/clients/client4.png",
+    ebsys: {
+      path: '/background-images/clients/client4.png',
       width: 'w-28',
-      height: 'h-8'
+      height: 'h-8',
     },
     'sopra hr': {
-      path: "/background-images/clients/client5.png",
+      path: '/background-images/clients/client5.png',
       width: 'w-28',
-      height: 'h-18'
-    }
+      height: 'h-18',
+    },
   };
 
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngAfterViewInit() {
-    if(!this.clientScrollContainer) return; //make sure it's not null
-
+    if (!this.clientScrollContainer) return; //make sure it's not null
   }
 
   getClientLogoData(name: string) {
     return this.clientLogoData[name];
   }
-
-  scrollClients(direction: 'left' | 'right') {
-    const container = this.clientScrollContainer.nativeElement;
-    const scrollAmount = 300;
-
-
-
-    gsap.to(container, {
-      scrollLeft: direction === 'left'
-        ? container.scrollLeft - scrollAmount
-        : container.scrollLeft + scrollAmount,
-      duration: 0,
-      ease: 'power2.out'
-    })
-
-  }
-
-
-
 }

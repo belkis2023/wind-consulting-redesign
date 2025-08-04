@@ -10,6 +10,9 @@ import { ProjectsSection } from "./projects-section/projects-section";
 import { ScrollSection } from "./scroll-section/scroll-section";
 import { ClientsScrollbar } from "./clients-scrollbar/clients-scrollbar";
 import { ChiffresCles } from './chiffres-cles/chiffres-cles';
+import { TechnologyUsed } from './technology-used/technology-used';
+import { Recruitment } from './recruitment/recruitment';
+import { News } from './news/news';
 
 
 @Component({
@@ -21,6 +24,9 @@ import { ChiffresCles } from './chiffres-cles/chiffres-cles';
     ScrollSection,
     ClientsScrollbar,
     ChiffresCles,
+    TechnologyUsed,
+    Recruitment,
+    News,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',

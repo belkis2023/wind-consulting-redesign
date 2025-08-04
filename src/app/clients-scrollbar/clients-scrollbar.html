@@ -7,8 +7,9 @@
     <div class="grid grid-cols-3 md:grid-cols-[1fr_9fr_1fr] grid-rows-2 gap-4 items-center">
 
             <!-- left button -->
-            <div class="col-span-1 row-start-2 md:col-start-1 md:row-start-1 flex justify-end md:justify-end">
-                <app-circular-button class="md:pr-8" (click)="scrollClients('left')" [icon]="'left-scroll'"
+            <div *ngIf="showScrollButtons" appScrollButtons [scrollTarget]="clientScrollContainer" #scrollBtns = "ScrollButtons"
+                 class="col-span-1 row-start-2 md:col-start-1 md:row-start-1 flex justify-end md:justify-end">
+                <app-circular-button class="md:pr-8" (click)="scrollBtns.scroll('left')" [icon]="'left-scroll'"
                     [bgColor]="'bg-wind-blue'" [strokeColor]="'stroke-white'" [strokeWidth]=2
                     bgImage="background-images/generic-background/background1.svg">
 
@@ -17,9 +18,12 @@
 
             <!-- cards -->
             <div class="col-span-3 row-start-1 md:col-span-1 md:col-start-2 overflow-hidden">
-                <div #clientScrollContainer class="overflow-x-auto flex
-                                            scroll-smooth no-scrollbar px-6 md:px-0
-                                            flex-1 gap-14">
+                <div #clientScrollContainer appDetectHorizontalOverflow
+                     (isOverFlowing)="showScrollButtons = $event"
+                      class="overflow-x-auto flex
+                      scroll-smooth no-scrollbar px-6 md:px-0
+                      flex-1 gap-14"
+                     [ngClass]= "{'justify-center': !showScrollButtons}">
                     <div class="inline-block" *ngFor="let client of clients; index as i">
                         <app-client-card [clientName]="client" [clientLogoData]="getClientLogoData(client)">
                         </app-client-card>
@@ -28,8 +32,9 @@
             </div>
 
             <!-- right button -->
-            <div class="col-span-1 row-start-2 md:row-start-1 md:col-start-3 flex justify-start md:justify-start">
-                <app-circular-button class="md:pl-8" (click)="scrollClients('right')" [icon]="'right-scroll'"
+            <div *ngIf="showScrollButtons" appScrollButtons [scrollTarget]="clientScrollContainer" #scrollBtns = "ScrollButtons"
+                 class="col-span-1 row-start-2 md:row-start-1 md:col-start-3 flex justify-start md:justify-start">
+                <app-circular-button class="md:pl-8" (click)="scrollBtns.scroll('right')" [icon]="'right-scroll'"
                     [bgColor]="'bg-wind-blue'" [strokeColor]="'stroke-white'" [strokeWidth]=2
                     bgImage="background-images/generic-background/background1.svg">
 
@@ -37,7 +42,7 @@
             </div>
 
             <!-- pagination -->
-            <div class="col-span-1 col-start-2 row-start-2 flex justify-center
+            <div *ngIf="showScrollButtons" class="col-span-1 col-start-2 row-start-2 flex justify-center
                         md:col-span-3 !items-center">
                 <app-scroll-pagination [scrollContainer]="clientScrollContainer"
                 >

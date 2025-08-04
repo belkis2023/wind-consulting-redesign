@@ -1,0 +1,63 @@
+<div class="relative w-10/12 h-96 flex justify-self-center top-4 mb-12"
+     [ngClass]="[getRoundedClass()]">
+  <!-- Bottom base Layer: the blue + the bigger background image -->
+  <div class="absolute inset-0 z-0 flex text-white
+                subtle-inner-shadow"
+       [ngClass]="[
+                  bgColor,
+                  getRoundedClass()]">
+  </div>
+  <!-- the background image -->
+  <!-- In here we're gonna have two effects, depending on the screen size -->
+  <div class="absolute inset-x-0 top-0 md:bottom-0 h-1/2 md:h-full w-full md:w-2/6 bg-[100%_50%] opacity-60 blur-[0.4px]"
+       style="background-image: url('/background-images/generic-background/background1.svg');"
+       [ngStyle]="dynamicStyles">
+  </div>
+
+
+  <div class="flex flex-col md:flex-row">
+    <!-- content: title + description + button-->
+    <div class="absolute px-8 space-y-8 self-center lg:px-12
+              flex justify-start flex-col w-1/2">
+      <!-- title + description -->
+      <div class="flex flex-col space-y-8 text-white specialFont">
+        <p class="text-[#59EEFF]">
+          Wind recrute
+        </p>
+        <h2 class="font-bold">
+          Développeur Fullstack Java / Angular
+        </h2>
+        <p class="text-sm leading-6 text-wrap">
+          Dans le cadre du renforcement de ses équipes, Wind Consulting recherche d’un développeur Java/JEE d’une expérience de 3 ans minimum en développement de solution Java/JEE avec le Framework Spring MVC
+        </p>
+      </div>
+      <!-- button -->
+      <app-button-with-background
+        backgroundImageUrl="background-images/generic-background/background1-with-more-fill.svg" label="Offres d'emploi"
+        icon="arrow-up-right" width="w-72 md:w-48" height="h-10" [strokeWidth]="2" strokeColor="stroke-links-blue"
+        textColor="text-links-blue" [logo]="true" whichLogo="logoBlue" backgroundPosition="bottom" logoSize="size-10"
+        bgColor="bg-white" imageOpacity="opacity-100">
+      </app-button-with-background>
+
+    </div>
+
+    <!-- the top layer: image + shadow + content -->
+    <div class="absolute inset-0 z-10 flex justify-end text-white"
+         [ngClass]="[getRoundedClass()]">
+      <!-- image + shadow -->
+      <div class="relative w-1/2 flex-shrink-0 right-0">
+        <!-- image -->
+        <img src="/background-images/cards/recruitement/recrute1.jpg"
+             class="h-full w-full custom-curve-reverse-upside-down
+                  md:custom-curve-reverse object-fill z-10"
+             [ngClass]="[getRoundedClass()]">
+        <!-- shadow -->
+        <div class="absolute -z-10 bg-slate-400/70 w-full h-full bottom-4 md:right-4 md:top-0
+                  custom-curve-reverse-upside-down md:custom-curve-reverse">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

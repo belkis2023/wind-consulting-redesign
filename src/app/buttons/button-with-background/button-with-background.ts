@@ -13,7 +13,7 @@ export class ButtonWithBackground implements OnInit {
 
   @Input() textColor: string = 'text-white';
   @Input() backgroundImageUrl!: string;
-  @Input() bgColor: string = 'bg-button-back';
+  @Input() bgColor: 'bg-button-back' | 'bg-white' = 'bg-button-back';
   @Input() backgroundPosition: string = 'center';
   @Input() width: string = 'w-150';
   @Input() height: string = 'h-180';
@@ -28,7 +28,7 @@ export class ButtonWithBackground implements OnInit {
 
 
   ngOnInit() {
-    console.log('icon', this.icon);
+
   }
-  
+
 }

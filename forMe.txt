@@ -1,4 +1,3 @@
 to fix later:
-- fix the scroll clients section: when there is just one page: no need to show pagination dots
-- fix the scroll clients section: when there are no pages: put the cards in the middle
 - create two pagination modes: blue one and white one
+- fix the logo cut in mobile view for the chiffres-cles section

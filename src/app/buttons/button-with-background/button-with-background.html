@@ -1,14 +1,14 @@
 <button class="relative bg-no-repeat bg-cover rounded-full"
   [ngClass]="[height, width, bgColor, textColor]">
-  <div class="absolute inset-0 bg-no-repeat bg-cover rounded-full"  
+  <div class="absolute inset-0 bg-no-repeat bg-cover rounded-full"
       [ngClass]="imageOpacity"
       [ngStyle]="{
     'background-image': 'url(' + backgroundImageUrl + ')',
     'background-position': backgroundPosition
     }">
   </div>
-  
-  <div *ngIf="logo" 
+
+  <div *ngIf="logo"
     class="absolute left-0 z-30 opacity-30 inset-y-0 bg-contain">
     <app-icon [icon] = whichLogo [logoSize]=logoSize>
     </app-icon>

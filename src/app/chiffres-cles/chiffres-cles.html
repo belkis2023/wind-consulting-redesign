@@ -1,10 +1,13 @@
-<div class="relative chiffresClesBack overflow-hidden h-full py-5">
-  <div class="absolute w-1/2 md:w-2/5 h-[100%] !z-30 right-0 top-1/2 -translate-y-1/2">
+<div class="relative chiffresClesBack overflow-hidden h-full py-8"
+      [ngClass]="{'h-[130vh]': showScrollButtons,
+                  'h-[110vh]': !showScrollButtons}">
+  <div class="absolute w-1/2 md:w-2/5 h-[100%] z-10 right-0 top-1/2 -translate-y-1/2
+              flex justify-end">
     <img src="/chiffres-cles/big-logo-back.svg"
-    class="w-full h-full object-cover filter saturate-90">
+    class="w-[80%] md:w-auto md:h-full object-cover filter saturate-90">
   </div>
   <!-- top logo + text + cards -->
-  <div class="flex flex-col mt-4 justify-center gap-4 items-center">
+  <div class="flex flex-col mt-4 justify-center gap-4 items-center overflow-hidden">
     <!-- now the top logo -->
     <div class="flex justify-center items-center w-32 h-12">
       <img class="h-full" src="/logo-wind-white.png"/>
@@ -23,12 +26,41 @@
       </p>
     </div>
     <!-- now the cards -->
-    <div class="flex justify-center gap-12 items-center z-40">
-      <div *ngFor="let chiffre of chiffres; let i = index">
+    <div #chiffresScrollContainer appDetectHorizontalOverflow
+         (isOverFlowing) = "showScrollButtons = $event"
+         class="w-full scroll-smooth no-scrollbar overflow-x-auto flex gap-12 px-12 z-20"
+          [ngClass]= "{'justify-center': !showScrollButtons}">
+      <div *ngFor="let chiffre of chiffres; let i = index"
+            class="!snap-start !flex-shrink-0">
         <app-chiffres-cles-card [chiffreCle] = "chiffre"
                                 [imageUrl]="i%2 === 0? backgroundImages[0]: backgroundImages[1]">
         </app-chiffres-cles-card>
       </div>
     </div>
+
+    <!-- now the scroll buttons -->
+    <div *ngIf="showScrollButtons" appScrollButtons [scrollTarget]="chiffresScrollContainer" #scrollBtns = "ScrollButtons"
+          class="flex justify-center items-center gap-4 mt-4 z-20">
+      <app-circular-button class="md:pr-8" (click)="scrollBtns.scroll('left')" [icon]="'left-scroll'"
+                           [bgColor]="'bg-wind-blue'" [strokeColor]="'stroke-white'" [strokeWidth]=2
+                           bgImage="background-images/generic-background/background1.svg">
+
+      </app-circular-button>
+      <app-scroll-pagination [scrollContainer]="chiffresScrollContainer"
+                              color = 'bg-white'>
+      </app-scroll-pagination>
+      <app-circular-button class="md:pl-8" (click)="scrollBtns.scroll('right')" [icon]="'right-scroll'"
+                           [bgColor]="'bg-wind-blue'" [strokeColor]="'stroke-white'" [strokeWidth]=2
+                           bgImage="background-images/generic-background/background1.svg">
+
+      </app-circular-button>
+
+    </div>
+
+
   </div>
-  </div>
+
+
+</div>
+
+

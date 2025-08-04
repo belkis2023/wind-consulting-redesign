@@ -3,7 +3,7 @@ import { NgClass, NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-generic-title',
-  imports: [NgClass, NgStyle],
+  imports: [NgClass],
   templateUrl: './generic-title.html',
   styleUrl: './generic-title.css',
 })
