@@ -22,19 +22,19 @@
       <!-- title + description -->
       <div class="flex flex-col space-y-8 text-white specialFont">
         <p class="text-[#59EEFF]">
-          Wind recrute
+          {{ tag }}
         </p>
         <h2 class="font-bold">
-          Développeur Fullstack Java / Angular
+          {{ title }}
         </h2>
         <p class="text-sm leading-6 text-wrap">
-          Dans le cadre du renforcement de ses équipes, Wind Consulting recherche d’un développeur Java/JEE d’une expérience de 3 ans minimum en développement de solution Java/JEE avec le Framework Spring MVC
+          {{ description }}
         </p>
       </div>
       <!-- button -->
 
         <app-button-with-background
-          backgroundImageUrl="background-images/generic-background/background1-with-more-fill.svg" label="Offres d'emploi"
+          backgroundImageUrl="background-images/generic-background/background1-with-more-fill.svg" [label]="buttonLabel"
           icon="arrow-up-right" width="w-[90%] md:w-48" height="h-10" [strokeWidth]="2" strokeColor="stroke-links-blue"
           textColor="text-links-blue" [logo]="true" whichLogo="logoBlue" backgroundPosition="bottom" logoSize="size-10"
           bgColor="bg-white" imageOpacity="opacity-100" class="flex justify-center md:justify-start">
@@ -49,7 +49,7 @@
       <!-- image + shadow -->
       <div class="relative w-full md:w-1/2 flex-shrink-0 right-0">
         <!-- image -->
-        <img src="/background-images/cards/recruitement/recrute1.jpg"
+        <img [src]= "imageUrl"
              class="h-full w-full custom-curve-reverse-upside-down
                   md:custom-curve-reverse object-fill z-10"
              [ngClass]="[getRoundedClass()]">

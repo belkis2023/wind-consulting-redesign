@@ -1,4 +1,4 @@
-import { Component, HostListener, Input } from '@angular/core';
+import { Component, HostListener, input, Input } from '@angular/core';
 import { CircularButton } from '../../buttons/circular-button/circular-button';
 import { NgForOf } from '@angular/common';
 import { CommonModule } from '@angular/common';
@@ -15,6 +15,11 @@ export class CardCircularCut {
   @Input() bgColor: string = 'bg-wind-blue';
   @Input() round: 'full' | 'lg' | 'xl' = 'lg';
   @Input() tag: string = '';
+  @Input() imageUrl: string = "";
+  @Input() title: string ="";
+  @Input() description: string = "";
+  @Input() buttonLabel: string = "";
+
 
   isMobile: boolean = false;
 
