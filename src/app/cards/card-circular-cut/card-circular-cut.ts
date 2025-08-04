@@ -49,7 +49,7 @@ export class CardCircularCut {
       case 'full':
         return 'rounded-full';
       case 'lg':
-        return 'rounded-lg';
+        return 'rounded-2xl md:rounded-lg';
       case 'xl':
         return 'rounded-xl';
       default:

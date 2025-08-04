@@ -1,4 +1,4 @@
-<div class="relative w-10/12 h-96 flex justify-self-center top-4 mb-12"
+<div class="relative w-9/12 md:w-10/12 h-[120vh] md:h-96 flex justify-self-center top-4 mb-12"
      [ngClass]="[getRoundedClass()]">
   <!-- Bottom base Layer: the blue + the bigger background image -->
   <div class="absolute inset-0 z-0 flex text-white
@@ -15,10 +15,10 @@
   </div>
 
 
-  <div class="flex flex-col md:flex-row">
+  <div class="flex flex-col md:flex-row space-y-4 md:space-y-0">
     <!-- content: title + description + button-->
-    <div class="absolute px-8 space-y-8 self-center lg:px-12
-              flex justify-start flex-col w-1/2">
+    <div class="absolute py-14 md:py-10 px-8 space-y-14 md:space-y-8 md:self-center lg:px-12
+              flex justify-start flex-col md:w-1/2">
       <!-- title + description -->
       <div class="flex flex-col space-y-8 text-white specialFont">
         <p class="text-[#59EEFF]">
@@ -32,20 +32,22 @@
         </p>
       </div>
       <!-- button -->
-      <app-button-with-background
-        backgroundImageUrl="background-images/generic-background/background1-with-more-fill.svg" label="Offres d'emploi"
-        icon="arrow-up-right" width="w-72 md:w-48" height="h-10" [strokeWidth]="2" strokeColor="stroke-links-blue"
-        textColor="text-links-blue" [logo]="true" whichLogo="logoBlue" backgroundPosition="bottom" logoSize="size-10"
-        bgColor="bg-white" imageOpacity="opacity-100">
-      </app-button-with-background>
+
+        <app-button-with-background
+          backgroundImageUrl="background-images/generic-background/background1-with-more-fill.svg" label="Offres d'emploi"
+          icon="arrow-up-right" width="w-[90%] md:w-48" height="h-10" [strokeWidth]="2" strokeColor="stroke-links-blue"
+          textColor="text-links-blue" [logo]="true" whichLogo="logoBlue" backgroundPosition="bottom" logoSize="size-10"
+          bgColor="bg-white" imageOpacity="opacity-100" class="flex justify-center md:justify-start">
+        </app-button-with-background>
+
 
     </div>
 
     <!-- the top layer: image + shadow + content -->
-    <div class="absolute inset-0 z-10 flex justify-end text-white"
+    <div class="absolute bottom-0 md:inset-0 z-10 flex justify-end text-white h-1/2 md:h-auto"
          [ngClass]="[getRoundedClass()]">
       <!-- image + shadow -->
-      <div class="relative w-1/2 flex-shrink-0 right-0">
+      <div class="relative w-full md:w-1/2 flex-shrink-0 right-0">
         <!-- image -->
         <img src="/background-images/cards/recruitement/recrute1.jpg"
              class="h-full w-full custom-curve-reverse-upside-down
@@ -56,8 +58,8 @@
                   custom-curve-reverse-upside-down md:custom-curve-reverse">
         </div>
       </div>
-
     </div>
+
   </div>
 
 </div>
