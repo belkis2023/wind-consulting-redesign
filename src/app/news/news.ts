@@ -39,8 +39,7 @@ export class News {
   @ViewChild(CardWithHorizontalLines) childCard!: CardWithHorizontalLines;
   ngAfterViewInit() {
     const cardElement = this.childCard.getCardElement();
-    this.cardWidth = cardElement.offsetWidth + 32; //we have to make this dynamic aka add the rest from the whole containe riffset width divided by the number of elements/cards
-
+    this.cardWidth = cardElement.getBoundingClientRect().right;
   }
 
 }

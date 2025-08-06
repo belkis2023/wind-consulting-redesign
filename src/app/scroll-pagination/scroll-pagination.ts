@@ -24,6 +24,7 @@ export class ScrollPagination implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     if(this.singleElementWidth) {
       this.scrollStep = this.singleElementWidth;
+
     }
     this.calculatePages();
     this.listenToScroll();
@@ -33,6 +34,8 @@ export class ScrollPagination implements OnInit, AfterViewInit {
   calculatePages() {
     const container = this.scrollContainer;
     const totalScrollableWidth = container.scrollWidth - container.clientWidth;
+
+
     this.pages = Math.ceil(totalScrollableWidth / this.scrollStep) +1 ;
 
     this.noPages.emit(this.pages);

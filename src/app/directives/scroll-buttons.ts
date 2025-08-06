@@ -27,7 +27,7 @@ export class ScrollButtons {
     if (!this.scrollTarget) return;
     if(this.singleElementWidth) {
       this.scrollStep = this.singleElementWidth;
-      console.log(`Single element width: ${this.scrollStep}`);
+
     }
     const current = this.scrollTarget.scrollLeft;
     const distance = direction === 'left'
