@@ -1,20 +1,21 @@
-<nav #navbar class="!fixed top-0 h-20 left-0 w-full z-50 bg-white 
-  flex justify-between !items-center shadow-md gap-12 !px-10 lg:!px-16 
+<nav
+  #navbar class="!fixed top-0 h-20 left-0 w-full z-50 bg-white
+  flex justify-between !items-center shadow-md gap-12 !px-10 lg:!px-16
   md:justify-start navbarBackground text-center">
 
   <!-- The logo -->
-  <div class="text-xl font-bold">
+  <div #mainContent class="text-xl font-bold flex-shrink-0">
     <img src="logo-wind.png" alt="logo" class="h-20 w-32
-        xs:w-[50px] xs:h-[50px]  
+        xs:w-[50px] xs:h-[50px]
         sm:h-16 sm:w-30" />
   </div>
 
   <!-- Desktop View -->
 
   <!-- the links on the navbar -->
-  <div class="hidden md:flex items-center gap-6 text-primary">
+  <div #mainContent class="hidden md:flex items-center gap-6 text-primary">
     <div *ngFor="let service of Services">
-      <a href="#" class="!block !text-links-blue !py-2 !text-l 
+      <a href="#" class="!block !text-links-blue !py-2 !text-l
         !font-medium transition-colors !no-underline">
         {{ service }}
       </a>
@@ -23,10 +24,10 @@
   </div>
 
   <!-- Contact us + Search button -->
-  <div class="hidden md:flex items-center gap-6 text-primary ml-auto">
+  <div #contactUs class="hidden md:flex items-center gap-6 text-primary ml-auto">
 
     <!-- The contact us button -->
-    <div>
+    <div *ngIf="showContactUsButton">
       <app-button-with-background backgroundImageUrl="background-images/generic-background/background1.svg"
         label="Contacter Nous" width="w-48" height="h-10"
         [logo]=true logoSize="size-10" backgroundPosition="bottom">
@@ -36,8 +37,8 @@
 
     <!-- the search button on desktop view -->
     <button (click)="toggleDesktopSearch()">
-      <div *ngIf="!isSearchOpen">
-        <app-circular-button icon="search" size="w-12 h-12" strokeColor="stroke-links-blue"
+      <div #mainContent *ngIf="!isSearchOpen">
+        <app-circular-button  icon="search" size="w-12 h-12" strokeColor="stroke-links-blue"
           [strokeWidth]=2></app-circular-button>
       </div>
 
@@ -77,20 +78,19 @@
     </button>
   </div>
 
-
 </nav>
 
 <!-- Mobile + desktop Menu search open -->
 <!-- here is the logic: - if search is cliked on either desktop or mobile we show the search edge-to-edge input-->
 <div #searchBar class="fixed bg-white left-0 right-0 z-50 h-20" [ngClass]="{
        'block': isSearchOpen,
-       'hidden': !isSearchOpen, 
+       'hidden': !isSearchOpen,
      }">
   <!-- Search input -->
   <div class="relative flex !w-full">
     <div class="!w-full">
-      <input type="text" placeholder="Quel Sujet Vous Intéresse?" 
-      class="w-full absolute pl-12 h-20 text-gray-700 bg-gray-100 
+      <input type="text" placeholder="Quel Sujet Vous Intéresse?"
+      class="w-full absolute pl-12 h-20 text-gray-700 bg-gray-100
         focus:outline-none focus:ring-2
         focus:ring-wind-blue focus:border-transparent duration-200
         rounded-none

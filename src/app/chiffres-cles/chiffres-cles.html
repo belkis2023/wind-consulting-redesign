@@ -1,10 +1,11 @@
 <div class="relative chiffresClesBack overflow-hidden h-full py-8"
-      [ngClass]="{'h-[125vh]': showScrollButtons,
+      [ngClass]="{'h-[130vh]': showScrollButtons,
                   'h-[110vh]': !showScrollButtons}">
-  <div class="absolute w-1/2 md:w-2/5 h-[100%] z-10 right-0 top-1/2 -translate-y-1/2
+  <div class="absolute w-2/3 lg:w-2/5 h-[100%] z-10 right-0 top-1/2 -translate-y-1/2
               flex justify-end">
     <img src="/chiffres-cles/big-logo-back.svg"
-    class="w-[80%] md:w-auto md:h-full object-cover filter saturate-90">
+    class="absolute h-full w-full scale-y-125 md:scale-x-110 md:scale-y-100 object-cover filter saturate-90"
+         [ngClass]="{'!scale-y-110': showScrollButtons}">
   </div>
   <!-- top logo + text + cards -->
   <div class="flex flex-col mt-4 justify-center gap-4 items-center overflow-hidden">
