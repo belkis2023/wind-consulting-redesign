@@ -25,6 +25,7 @@ export class ButtonWithBackground implements OnInit {
   @Input() whichLogo: 'logoWhite' | 'logoBlue' = 'logoWhite';
   @Input() imageOpacity: string = 'opacity-55';
   @Input() logoSize: string = "size-12";
+  @Input() rounded: string = 'rounded-full';
 
 
   ngOnInit() {

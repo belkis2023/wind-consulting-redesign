@@ -1,0 +1,20 @@
+<div class="border-3 w-80 md:w-96 bg-white border-solid border-wind-blue rounded-full flex justify-end">
+  <!-- this is the label -->
+  <div class="flex flex-1 items-center justify-center md:justify-start">
+    <input type="text" class="specialFont bg-transparent focus:outline-none pl-4"
+           [placeholder]="label"
+    />
+
+  </div>
+  <!-- this is the button -->
+  <div class="w-24 sm:w-28 md:w-36 flex-shrink-0">
+    <app-button-with-background class="flex justify-end"
+                                backgroundImageUrl="background-images/generic-background/background1.svg"
+                                [label]="buttonLabel" width="w-full" height="h-12"
+                                backgroundPosition="bottom" rounded="rounded-left-flat-right-full">
+
+    </app-button-with-background>
+  </div>
+</div>
+
+

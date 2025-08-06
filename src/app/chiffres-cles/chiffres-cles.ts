@@ -40,6 +40,6 @@ export class ChiffresCles implements AfterViewInit {
 
   ngAfterViewInit() {
     if (!this.chiffresScrollContainer) return; //make sure it's not null
-    console.log(this.showScrollButtons);
+
   }
 }

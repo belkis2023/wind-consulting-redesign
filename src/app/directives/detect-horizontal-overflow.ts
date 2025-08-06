@@ -22,6 +22,7 @@ export class DetectHorizontalOverflow implements AfterViewInit {
     const el = this.el.nativeElement;
     const isOverflowing = el.scrollWidth > el.clientWidth;
     this.isOverFlowing.emit(isOverflowing);
+
   }
 
 }

@@ -25,7 +25,9 @@
                       flex-1 gap-14"
                      [ngClass]= "{'justify-center': !showScrollButtons}">
                     <div class="inline-block" *ngFor="let client of clients; index as i">
-                        <app-client-card [clientName]="client" [clientLogoData]="getClientLogoData(client)">
+                        <app-client-card [clientName]="client" [clientLogoData]="getClientLogoData(client)"
+                                          cardBackgroundImage="/background-images/clients/background-client.jpg"
+                                          [isClient]="true">
                         </app-client-card>
                     </div>
                 </div>

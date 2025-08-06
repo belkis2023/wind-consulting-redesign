@@ -1,0 +1,10 @@
+.footer-color-back {
+  background: linear-gradient(90deg, #0677B9 5%, #055A8B 60%, #05507A 100%);
+}
+
+.footer-image-back {
+  background-image: url('/background-images/generic-background/background1.svg');
+  background-size: contain;
+  mask-image: linear-gradient(to top,  rgba(0, 0, 0, 0.5) 10%,
+                                        rgba(0, 0, 0, 0) 40%);
+}

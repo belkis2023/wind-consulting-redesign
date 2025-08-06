@@ -1,0 +1,62 @@
+<div class="links-container">
+  <!-- logo and mission and social media icons -->
+  <div class="md:logo-mission">
+    <div class="flex flex-col items-center md:items-start gap-3">
+      <img class="w-40 h-20" src="/logo-wind-white.png"/>
+      <p class="text-xs text-center md:!text-left md:pr-4 px-20 sm:px-32 md:px-0" style="line-height: 2">
+        Wind Consulting a pour mission de concevoir
+        et mettre en oeuvre les meilleures solutions Software visant
+        à améliorer la productivité la rentabilité et la réactivité des entreprises  sur leur marché.
+      </p>
+      <div class="flex gap-3">
+        <app-circular-button [icon]="'facebook'"
+                             [bgColor]="'bg-white'" [strokeColor]="'stroke-wind-blue'" [strokeWidth]=25
+                              [size]="'w-10 h-10'">
+
+        </app-circular-button>
+        <app-circular-button [icon]="'instagram'"
+                             [bgColor]="'bg-white'" [strokeColor]="'stroke-wind-blue'" [strokeWidth]=12
+                             [size]="'w-10 h-10'">
+
+        </app-circular-button>
+        <app-circular-button [icon]="'linkedin'"
+                             [bgColor]="'bg-white'" [strokeColor]="'stroke-wind-blue'" [strokeWidth]=20
+                             [size]="'w-10 h-10'">
+
+        </app-circular-button>
+      </div>
+    </div>
+  </div>
+
+  <!-- links -->
+  <div class="items-center md:items-start flex flex-col gap-4 pt-8 md:pt-20">
+    <a *ngFor="let service of services1"
+    href="#" class="text-white text-sm specialFont
+     transition-colors !no-underline">
+      {{ service }}
+    </a>
+  </div>
+
+  <div class="flex flex-col items-center md:items-start gap-4 pt-8 md:pt-20">
+    <a *ngFor="let service of services2"
+       href="#" class="text-white text-sm specialFont
+     transition-colors !no-underline">
+      {{ service }}
+    </a>
+  </div>
+
+  <!-- contact info -->
+  <div class="flex flex-col items-center md:items-start gap-4 pt-8 md:pt-20 pb-8">
+    <hr class="md:hidden block border-3 opacity-100 w-[90%] border-white mx-auto">
+    <span class="text-white text-sm specialFont">
+      Contactez-nous
+    </span>
+    <app-contact-item *ngFor="let contact of contactInfo"
+                      [icon]="contact.icon"
+                      [text]="contact.text"
+                      [link]="contact.link">
+    </app-contact-item>
+  </div>
+
+
+</div>

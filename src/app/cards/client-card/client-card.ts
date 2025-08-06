@@ -9,6 +9,8 @@ import { ClientLogoData } from '../../clients-scrollbar/clients-scrollbar';
   styleUrl: './client-card.css'
 })
 export class ClientCard {
-  @Input() clientLogoData!: ClientLogoData;
-  @Input() clientName!: string;
+  @Input() clientLogoData: ClientLogoData | null = null;
+  @Input() isClient: boolean = false;
+  @Input() clientName: string="";
+  @Input() cardBackgroundImage!: string;
 }

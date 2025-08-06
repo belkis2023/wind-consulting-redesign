@@ -10,7 +10,7 @@ import { Icon } from "../../icon/icon";
   styleUrl: './circular-button.css'
 })
 export class CircularButton {
-  @Input() icon: 'arrow-up-right' | 'plus' | 'x-mark' | 'hamburger-menu' | 'search' | 'left-scroll' | 'right-scroll' = 'arrow-up-right';
+  @Input() icon: 'arrow-up-right' | 'plus' | 'x-mark' | 'hamburger-menu' | 'search' | 'left-scroll' | 'right-scroll' | 'facebook' | 'instagram' | 'linkedin' = 'arrow-up-right';
   @Input() bgColor: string = 'bg-white';
   @Input() textColor: string = 'text-white';
   @Input() size: string = 'w-8 h-8';

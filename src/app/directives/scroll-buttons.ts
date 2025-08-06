@@ -13,6 +13,8 @@ export class ScrollButtons {
 
   @Input() scrollTarget!: HTMLElement;
   @Input() scrollStep: number = 300;
+  @Input() singleElementWidth!: number;
+  //see this later
   @ContentChildren('cardRef', { read: ElementRef }) cards!: QueryList<ElementRef>;
   //if we want to use the snap-to-card effect:
 
@@ -23,7 +25,10 @@ export class ScrollButtons {
 
   scroll(direction: 'left' | 'right') {
     if (!this.scrollTarget) return;
-
+    if(this.singleElementWidth) {
+      this.scrollStep = this.singleElementWidth;
+      console.log(`Single element width: ${this.scrollStep}`);
+    }
     const current = this.scrollTarget.scrollLeft;
     const distance = direction === 'left'
       ? current - this.scrollStep
@@ -36,9 +41,9 @@ export class ScrollButtons {
     })
   }
 
-  scrollToCard(direction: 'left' | 'right') {
+  /*scrollToCard(direction: 'left' | 'right') {
     if(!this.cards) {
-      console.log("bla");
+
       return;
     }
     const cardsArray = this.cards.toArray();
@@ -56,22 +61,9 @@ export class ScrollButtons {
       scrollTo: { x: targetCard.offsetLeft },
       ease: 'power2.out',
     });
-  }
+  }*/
+
 
 }
 
-/*scrollClients(direction: 'left' | 'right') {
-    const container = this.clientScrollContainer.nativeElement;
-    const scrollAmount = 300;
 
-
-
-    gsap.to(container, {
-      scrollLeft: direction === 'left'
-        ? container.scrollLeft - scrollAmount
-        : container.scrollLeft + scrollAmount,
-      duration: 0,
-      ease: 'power2.out'
-    })
-
-  }*/

@@ -11,6 +11,7 @@ export class ScrollPagination implements OnInit, AfterViewInit {
   @Input() scrollContainer!: HTMLDivElement;
   @Input() scrollStep: number = 300;
   @Input() color: string = 'bg-wind-blue';
+  @Input() singleElementWidth!: number;
 
   @Output() noPages = new EventEmitter<number>();
   pages: number = 0;
@@ -21,9 +22,11 @@ export class ScrollPagination implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-
-      this.calculatePages();
-      this.listenToScroll();
+    if(this.singleElementWidth) {
+      this.scrollStep = this.singleElementWidth;
+    }
+    this.calculatePages();
+    this.listenToScroll();
   }
 
 

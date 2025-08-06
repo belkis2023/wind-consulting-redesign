@@ -1,0 +1,20 @@
+<div #newsCard class="flex flex-col h-96 w-[90vw] lg:w-[600px]">
+  <app-line-wrapper>
+    <div class="flex gap-8 h-32">
+      <!-- here we have the news image -->
+      <app-client-card cardBackgroundImage="/background-images/cards/news/news1.jpg"
+      ></app-client-card>
+
+      <!-- here we have the news text -->
+      <div class="text-links-blue text-sm
+                   line-clamp-4">
+        {{ newsText }}
+      </div>
+    </div>
+  </app-line-wrapper>
+  <!-- here we're gonna have the button to go to that news page -->
+  <div class="flex justify-end -mt-6">
+    <app-circular-button icon="arrow-up-right" [outline]="true" outlineColor="border-wind-blue"></app-circular-button>
+  </div>
+
+</div>

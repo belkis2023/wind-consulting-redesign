@@ -1,1 +1,37 @@
-<p>news works!</p>
+<div class="pt-2 pb-20">
+  <hr class="border-2 my-11 w-[90%] mx-auto border-wind-blue">
+  <!-- this is a moving news title -->
+  <div>
+    <app-generic-title size="large">
+      Nos Dernières <span class="text-blue-600">Actualités</span>
+    </app-generic-title>
+  </div>
+  <div  appDetectHorizontalOverflow #newsScrollSection
+        (isOverFlowing) = "showScrollButtons = $event"
+        class="flex gap-8 justify-between w-[90%] mx-auto overflow-x-auto">
+        <app-card-with-horizontal-lines #singleCard
+          *ngFor="let news of newsList; let i = index"
+           [newsText]=news>
+
+        </app-card-with-horizontal-lines>
+  </div>
+  <!-- this is the scroll buttons -->
+  <div *ngIf="showScrollButtons" appScrollButtons [scrollTarget]="newsScrollSection" [singleElementWidth]="cardWidth"
+       #scrollBtns = "ScrollButtons"
+       class="flex justify-center items-center gap-4 z-20 mt-2">
+    <app-circular-button class="md:pr-8" (click)="scrollBtns.scroll('left')" [icon]="'left-scroll'"
+                         [bgColor]="'bg-wind-blue'" [strokeColor]="'stroke-white'" [strokeWidth]=2
+                         bgImage="background-images/generic-background/background1.svg">
+
+    </app-circular-button>
+    <app-scroll-pagination [scrollContainer]="newsScrollSection"
+                            [singleElementWidth]="cardWidth">
+    </app-scroll-pagination>
+    <app-circular-button class="md:pl-8" (click)="scrollBtns.scroll('right')" [icon]="'right-scroll'"
+                         [bgColor]="'bg-wind-blue'" [strokeColor]="'stroke-white'" [strokeWidth]=2
+                         bgImage="background-images/generic-background/background1.svg">
+
+    </app-circular-button>
+
+  </div>
+</div>

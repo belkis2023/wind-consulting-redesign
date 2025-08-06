@@ -71,7 +71,7 @@ export class Globe implements AfterViewInit {
       .htmlElement((d: Location) => this.createMarkerElement(d));
   }
 
-  //creates a styled marker for a location 
+  //creates a styled marker for a location
   createMarkerElement(location: Location): HTMLElement {
     const componentRef = createComponent(Marker, {
       environmentInjector: this.environmentInjector
@@ -81,7 +81,7 @@ export class Globe implements AfterViewInit {
     componentRef.setInput('details', location.details);
 
     componentRef.changeDetectorRef.detectChanges();
-    console.log(location.name);
+
 
     return componentRef.location.nativeElement;
   }

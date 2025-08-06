@@ -1,0 +1,16 @@
+<div class="flex gap-3 text-white">
+  <img *ngIf="icon" [src] = "icon" alt="" class="w-5 h-5"/>
+
+  <ng-container *ngIf="link; else plainText">
+    <a [href]="link" class="text-sm specialFont
+     transition-colors !no-underline">
+      {{ text }}
+    </a>
+  </ng-container>
+  <ng-template #plainText>
+    <span>
+      {{ text }}
+    </span>
+  </ng-template>
+
+</div>

@@ -13,6 +13,9 @@ import { ChiffresCles } from './chiffres-cles/chiffres-cles';
 import { TechnologyUsed } from './technology-used/technology-used';
 import { Recruitment } from './recruitment/recruitment';
 import { News } from './news/news';
+import { Footer } from './footer/footer';
+import { Newsletter } from './newsletter/newsletter';
+import { ButtonWithLabel } from './buttons/button-with-label/button-with-label';
 
 
 @Component({
@@ -27,6 +30,9 @@ import { News } from './news/news';
     TechnologyUsed,
     Recruitment,
     News,
+    Footer,
+    Newsletter,
+    ButtonWithLabel,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',
