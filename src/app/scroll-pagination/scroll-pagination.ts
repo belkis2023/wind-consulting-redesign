@@ -27,7 +27,6 @@ export class ScrollPagination implements OnInit, AfterViewInit {
       const gapStr = containerStyles.getPropertyValue('gap');
       const gap = parseFloat(gapStr) || 0; // Default to 0 if gap is not set
       this.scrollStep = this.singleElementWidth + gap;
-      console.log('wouuh ' + this.scrollStep);
     }
     this.calculatePages();
     this.listenToScroll();
