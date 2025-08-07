@@ -1,6 +1,6 @@
 <div class="relative chiffresClesBack overflow-hidden h-full py-8"
-      [ngClass]="{'h-[130vh]': showScrollButtons,
-                  'h-[110vh]': !showScrollButtons}">
+      [ngClass]="{'h-[1300vh]': showScrollButtons,
+                  'h-[106vh]': !showScrollButtons}">
   <div class="absolute w-2/3 lg:w-2/5 h-[100%] z-10 right-0 top-1/2 -translate-y-1/2
               flex justify-end">
     <img src="/chiffres-cles/big-logo-back.svg"
@@ -34,20 +34,21 @@
       <div *ngFor="let chiffre of chiffres; let i = index"
             class="!snap-start !flex-shrink-0">
         <app-chiffres-cles-card [chiffreCle] = "chiffre"
-                                [imageUrl]="i%2 === 0? backgroundImages[0]: backgroundImages[1]">
+                                [imageUrl]="backgroundImages[i]">
         </app-chiffres-cles-card>
       </div>
     </div>
 
     <!-- now the scroll buttons -->
-    <div *ngIf="showScrollButtons" appScrollButtons [scrollTarget]="chiffresScrollContainer" #scrollBtns = "ScrollButtons"
+    <div *ngIf="showScrollButtons" appScrollButtons [scrollTarget]="chiffresScrollContainer" [singleElementWidth]="cardWidth"
+         #scrollBtns = "ScrollButtons"
           class="flex justify-center items-center gap-4 z-20 mt-2">
       <app-circular-button class="md:pr-8" (click)="scrollBtns.scroll('left')" [icon]="'left-scroll'"
                            [bgColor]="'bg-wind-blue'" [strokeColor]="'stroke-white'" [strokeWidth]=2
                            bgImage="background-images/generic-background/background1.svg">
 
       </app-circular-button>
-      <app-scroll-pagination [scrollContainer]="chiffresScrollContainer"
+      <app-scroll-pagination [scrollContainer]="chiffresScrollContainer" [singleElementWidth]="cardWidth"
                               color = 'bg-white'>
       </app-scroll-pagination>
       <app-circular-button class="md:pl-8" (click)="scrollBtns.scroll('right')" [icon]="'right-scroll'"

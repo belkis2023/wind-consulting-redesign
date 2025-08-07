@@ -11,9 +11,10 @@
 
   <!-- title -->
   <div #title class="absolute bottom-9 flex justify-center items-center left-1/2 -translate-x-1/2">
-    <div class="tracking-wider leading-relaxed text-nowrap">
-      <app-generic-title size="medium" boldness="font-bold" color="text-wind-blue">
-        10 <br> Pays d'interventions
+    <div class="tracking-wider text-nowrap">
+      <app-generic-title size="medium" boldness="font-bold" color="text-wind-blue"
+                       style="line-height: 3">
+        {{ chiffreCle.number }} <br> {{ chiffreCle.type }}
       </app-generic-title>
     </div>
   </div>
@@ -23,7 +24,7 @@
               flex flex-col justify-center items-center text-center content-div">
 
     <div class="specialFont text-lg text-wrap">
-      {{ chiffreCle }}
+      {{ chiffreCle.description }}
     </div>
   </div>
 

@@ -4,3 +4,9 @@ export interface project {
     backgroundImageUrl: string,
     tags: string[]
 }
+
+export interface chiffreCle {
+    number: string,
+    type: string,
+    description: string,
+}

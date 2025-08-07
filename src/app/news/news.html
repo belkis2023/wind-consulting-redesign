@@ -1,4 +1,4 @@
-<div class="pt-2 pb-20">
+<div class="pt-2 pb-20 overflow-hidden">
   <hr class="border-2 my-11 w-[90%] mx-auto border-wind-blue">
   <!-- this is a moving news title -->
   <div>
@@ -6,6 +6,8 @@
       Nos Dernières <span class="text-blue-600">Actualités</span>
     </app-generic-title>
   </div>
+
+  <!-- the cards -->
   <div  appDetectHorizontalOverflow #newsScrollSection
         (isOverFlowing) = "showScrollButtons = $event"
         class="scroll-smooth no-scrollbar flex gap-8 justify-between w-[90%] mx-auto overflow-x-auto">

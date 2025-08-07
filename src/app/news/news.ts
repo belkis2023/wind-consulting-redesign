@@ -40,6 +40,7 @@ export class News {
   ngAfterViewInit() {
     const cardElement = this.childCard.getCardElement();
     this.cardWidth = cardElement.getBoundingClientRect().right;
+
   }
 
 }

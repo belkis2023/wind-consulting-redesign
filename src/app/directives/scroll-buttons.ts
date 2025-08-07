@@ -18,6 +18,9 @@ export class ScrollButtons {
   @ContentChildren('cardRef', { read: ElementRef }) cards!: QueryList<ElementRef>;
   //if we want to use the snap-to-card effect:
 
+  //testing
+
+  //testing
 
   currentIndex = 0;
 
@@ -25,10 +28,14 @@ export class ScrollButtons {
 
   scroll(direction: 'left' | 'right') {
     if (!this.scrollTarget) return;
+    const containerStyles = getComputedStyle(this.scrollTarget);
+    const gapStr = containerStyles.getPropertyValue('gap');
+    const gap = parseFloat(gapStr) || 0; // Default to 0 if gap is not set
     if(this.singleElementWidth) {
-      this.scrollStep = this.singleElementWidth;
+      this.scrollStep = this.singleElementWidth + gap;
 
     }
+
     const current = this.scrollTarget.scrollLeft;
     const distance = direction === 'left'
       ? current - this.scrollStep

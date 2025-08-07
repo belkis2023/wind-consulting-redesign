@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 import { CommonModule } from '@angular/common';
+import { chiffreCle } from '../../models/project';
 
 @Component({
   selector: 'app-chiffres-cles-card',
@@ -13,7 +14,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './chiffres-cles-card.css',
 })
 export class ChiffresClesCard implements AfterViewInit {
-  @Input() chiffreCle!: string;
+  @Input() chiffreCle!: chiffreCle;
   @Input() imageUrl!: string;
 
   @ViewChild('card') card!: ElementRef;
@@ -54,6 +55,9 @@ export class ChiffresClesCard implements AfterViewInit {
       gsap.to(title, { opacity: 1, duration: 0.5 });
     });
 
+  }
+  getCardElement(): HTMLElement {
+    return this.card.nativeElement;
   }
 
 }
