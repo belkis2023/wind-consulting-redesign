@@ -16,6 +16,8 @@ import { News } from './news/news';
 import { Footer } from './footer/footer';
 import { Newsletter } from './newsletter/newsletter';
 import { ButtonWithLabel } from './buttons/button-with-label/button-with-label';
+import { OrbitTechnologyComponent } from './orbit-technology/orbit-technology';
+import { TestOrbit } from './test-orbit/test-orbit';
 
 
 @Component({
@@ -33,6 +35,8 @@ import { ButtonWithLabel } from './buttons/button-with-label/button-with-label';
     Footer,
     Newsletter,
     ButtonWithLabel,
+    OrbitTechnologyComponent,
+    TestOrbit,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',
