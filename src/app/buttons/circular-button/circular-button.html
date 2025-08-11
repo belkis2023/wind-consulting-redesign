@@ -1,14 +1,17 @@
-<button [ngClass]="[bgColor, textColor, size, 
+<button [ngClass]="[bgColor, textColor, size,
                     'rounded-full flex items-center justify-center relative',
                     outline ? outlineWidth : '',
                     outline ? outlineColor : ''
                     ]"
         [ngStyle]="backgroundStyles">
-    
+
     <!-- Depending on the chosen icon, we will show what svg we want -->
-    <div class="absolute">
+    <div  *ngIf="!iconPng" class="absolute">
         <app-icon [icon]="icon" [strokeColor]="strokeColor"
                     [strokeWidth]="strokeWidth">
         </app-icon>
     </div>
+    <ng-container *ngIf="iconPng">
+      <img class="w-6 h-6" [src]="iconPng"/>
+    </ng-container>
 </button>

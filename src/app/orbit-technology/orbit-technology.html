@@ -1,7 +1,7 @@
-<div class="relative flex justify-center items-center">
+<div class="py-12 relative flex justify-center items-center">
   <!-- the logo in the middle -->
   <div
-    class="absolute size-72 z-20 flex justify-center items-center left-[52%] -translate-x-1/2"
+    class="absolute size-72 md:size-96 opacity-60 z-20 flex justify-center items-center left-[52%] -translate-x-1/2"
   >
     <img src="/orbit-technology/orbit-center-logo.svg" />
   </div>
@@ -3980,22 +3980,8 @@
 
   <div class="orbit-container absolute w-full h-full">
     <div class="absolute z-10 h-full w-full pointer-events-none">
-      <!--<svg
-        width="100%"
-        height="100%"
-        viewBox="0 0 785 780"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <ng-container *ngFor="let ring of rings; let r = index">
-          <path [id]="'orbitPath' + r"
 
-            [attr.d]="circlePath(cx, cy, ring.radius)"
-            fill="none"
-            stroke="red"
-          />
-        </ng-container>
-      </svg>-->
-      <svg stroke="red"
+      <svg
         width="100%"
         height="100%"
         viewBox="0 0 785 780"
@@ -4039,7 +4025,8 @@
             class="icon absolute w-10 h-10 cursor-pointer"
             [title]="tech.name"
           >
-            <img [src]="tech.icon" alt="{{tech.name}}" />
+            <!--<img [src]="tech.icon" alt="{{tech.name}}" />-->
+            <app-circular-button size="w-12 h-12" [iconPng]="tech.icon" [bgColor]="bgColors[tech.color]"></app-circular-button>
           </div>
         </ng-container>
       </ng-container>
