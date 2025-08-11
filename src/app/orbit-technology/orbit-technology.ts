@@ -1,11 +1,15 @@
 import {
-  Component, ElementRef, ViewChild, AfterViewInit, ViewChildren, QueryList
+  Component,
+  ElementRef,
+  ViewChild,
+  AfterViewInit,
+  ViewChildren,
+  QueryList,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { gsap } from 'gsap';
 import { GenericTitle } from '../generic-title/generic-title/generic-title';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
-
 
 gsap.registerPlugin(MotionPathPlugin);
 
@@ -17,96 +21,123 @@ gsap.registerPlugin(MotionPathPlugin);
   imports: [CommonModule, GenericTitle],
 })
 export class OrbitTechnologyComponent implements AfterViewInit {
-
   //cx and cy are useless here, but when we have a different viewbox size, we can use them to center the orbit in the template
   cx = 785 / 2;
   cy = 780 / 2;
 
-
-
   iconsPerRing = 3;
 
-  //this is used when
+  //this is used when we hover the whole ring stops, so we need to name our tweens (a tween for each ring)
+
+  ringTweens: gsap.core.Timeline[] = [];
 
   rings = [
     {
-      radius: 180,
+      radius: 250,
       icons: [
         { name: 'Angular', icon: '/orbit-technology/orbit-icons/angular.svg' },
         { name: 'Flutter', icon: '/orbit-technology/orbit-icons/flutter.svg' },
         { name: 'Github', icon: '/orbit-technology/orbit-icons/github.svg' },
-      ]
+      ],
     },
     {
       radius: 270,
       icons: [
         { name: 'NestJS', icon: '/orbit-technology/orbit-icons/nestjs.svg' },
-        { name: 'Postgres', icon: '/orbit-technology/orbit-icons/postgres.svg' },
-        { name: 'Node.js', icon: '/orbit-technology/orbit-icons/nodejs.svg' }
-      ]
+        {
+          name: 'Postgres',
+          icon: '/orbit-technology/orbit-icons/postgres.svg',
+        },
+        { name: 'Node.js', icon: '/orbit-technology/orbit-icons/nodejs.svg' },
+      ],
     },
     {
       radius: 350,
       icons: [
         { name: 'ReactJS', icon: '/orbit-technology/orbit-icons/reactjs.svg' },
-        { name: 'SonarQube', icon: '/orbit-technology/orbit-icons/sonarqube.svg' },
-        { name: 'VueJS', icon: '/orbit-technology/orbit-icons/vuejs.svg' }
-      ]
-    }
+        {
+          name: 'SonarQube',
+          icon: '/orbit-technology/orbit-icons/sonarqube.svg',
+        },
+        { name: 'VueJS', icon: '/orbit-technology/orbit-icons/vuejs.svg' },
+      ],
+    },
   ];
 
   @ViewChildren('icon') icons!: QueryList<ElementRef>;
 
   ngAfterViewInit() {
-    this.icons.forEach((iconRef, i) => {
+    //creating an icons array
+    const iconsArray = this.icons.toArray();
 
-
-      const el = iconRef.nativeElement;
-
-      const ringIndex = parseInt(el.dataset['ring']!, 10);
-      const offset = ringIndex/2 + i/this.iconsPerRing;
-      console.log(offset);
-      const pathId = `#orbitPath${ringIndex}`;
-
-
-      // Animate along the circular path
-      gsap.to(el, {
-         // radians offset
-        motionPath: {
-
-          path: pathId,
-          align: pathId,
-          alignOrigin: [0.5, 0.5],
-          start: offset, // starting offset
-          end: 1 + offset // keeps it looping cuz we're basically wrapping it around (starting and ending at the same point)
-
-        },
-        modifiers: {
-          // keeps it into [0, 1] range
-          motionPath: (value) => value % 1
-        },
-        duration: 20,
-        repeat: -1,
-        ease: "linear",
-
-      });
+    //we're gonna map the icons to add a ring index to each icon
+    const ringMap: { [key: number]: ElementRef[] } = {};
+    //here we're mapping each icon to its ring
+    iconsArray.forEach((icon) => {
+      const ring = parseInt(icon.nativeElement.dataset['ring']);
+      if (!ringMap[ring]) ringMap[ring] = [];
+      ringMap[ring].push(icon);
     });
 
-  }
+    //now we're gonna handle the tweens and the timelines
+    for (const ringIndex in ringMap) {
+      const ringNumber = Number(ringIndex);
+      const ringIcons = ringMap[ringNumber];
+      const iconsCount = ringIcons.length;
 
+      ringIcons.forEach((icon, i) => {
+        const el = icon.nativeElement;
+        const offset = ringNumber / 5 + i / iconsCount;
+        const pathId = `#orbitPath${ringNumber}`;
+
+        const tween = gsap.to(el, {
+          // radians offset
+          motionPath: {
+            path: pathId,
+            align: pathId,
+            alignOrigin: [0.5, 0.5],
+            start: offset, // starting offset
+            end: 1 + offset, // keeps it looping cuz we're basically wrapping it around (starting and ending at the same point)
+          },
+          modifiers: {
+            // keeps it into [0, 1] range
+            motionPath: (value) => value % 1,
+          },
+          duration: 20,
+          repeat: -1,
+          ease: 'linear',
+        });
+
+        // Store the tween in the ringTweens array
+        if(!this.ringTweens[ringNumber]) {
+          this.ringTweens[ringNumber] = gsap.timeline({paused: false});
+        }
+        this.ringTweens[ringNumber].add(tween, 0);
+
+        //now we're gonna treat hover events on icons
+        el.addEventListener('mouseenter', () => {
+          this.ringTweens[ringNumber].pause();
+        })
+
+        el.addEventListener('mouseleave', () => {
+          this.ringTweens[ringNumber].resume();
+        })
+
+      });
+    }
+
+    console.log(this.circlePath(this.cx, this.cy, 200));
+
+  }
 
   circlePath(cx: number, cy: number, r: number): string {
     return [
-      `M ${cx},${cy}`,
-      `m -${r},0`,
-      `a ${r},${r} 0 1,0 ${2 * r},0`,
-      `a ${r},${r} 0 1,0 -${2 * r},0`,
-      'Z'
+      `M ${cx},${cy - r}`,
+      `a ${r},${r} 0 1,0 0,${2 * r}`,
+      `a ${r},${r} 0 1,0 0,-${2 * r}`,
+      'Z',
     ].join(' ');
   }
-
-
-
 }
 /*
 what we'll do for the icons:
