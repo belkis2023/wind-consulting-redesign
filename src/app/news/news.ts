@@ -38,6 +38,7 @@ export class News {
   //get the width of the card from the card component (the child)
   @ViewChild(CardWithHorizontalLines) childCard!: CardWithHorizontalLines;
   ngAfterViewInit() {
+
     const cardElement = this.childCard.getCardElement();
     this.cardWidth = cardElement.getBoundingClientRect().right;
 

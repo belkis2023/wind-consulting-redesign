@@ -18,6 +18,7 @@ import { Newsletter } from './newsletter/newsletter';
 import { ButtonWithLabel } from './buttons/button-with-label/button-with-label';
 import { OrbitTechnologyComponent } from './orbit-technology/orbit-technology';
 import { TestOrbit } from './test-orbit/test-orbit';
+import { UsedTechCard } from './cards/used-tech-card/used-tech-card';
 
 
 @Component({
@@ -37,6 +38,7 @@ import { TestOrbit } from './test-orbit/test-orbit';
     ButtonWithLabel,
     OrbitTechnologyComponent,
     TestOrbit,
+    UsedTechCard,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',

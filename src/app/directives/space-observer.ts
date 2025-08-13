@@ -26,7 +26,7 @@ export class SpaceObserver  implements AfterViewInit {
     const containerWidth = this.container.clientWidth;
     const requiredWidth = this.necessaryContentWidth + this.unecessaryContentWidth;
     const canShow = containerWidth >= requiredWidth;
-    console.log(`Container width: ${containerWidth}, Required width: ${requiredWidth}, Can show unnecessary content: ${canShow}`);
+
     this.isUnnecessaryContentVisible.emit(canShow);
   }
 

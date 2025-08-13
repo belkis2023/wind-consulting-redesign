@@ -11,20 +11,43 @@ import { gsap } from 'gsap';
 import { GenericTitle } from '../generic-title/generic-title/generic-title';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import { CircularButton } from '../buttons/circular-button/circular-button';
+import { rings } from '../models/icons';
+import { iconURLs } from '../models/icons';
+import { UsedTechCard } from '../cards/used-tech-card/used-tech-card';
+import { ScrollPagination } from '../scroll-pagination/scroll-pagination';
+import { DetectHorizontalOverflow } from '../directives/detect-horizontal-overflow';
+import { ScrollButtons } from '../directives/scroll-buttons';
+import { ChiffresClesCard } from '../cards/chiffres-cles-card/chiffres-cles-card';
 
 gsap.registerPlugin(MotionPathPlugin);
+
+
 
 @Component({
   selector: 'app-orbit-technology',
   templateUrl: './orbit-technology.html',
   styleUrls: ['./orbit-technology.css'],
   standalone: true,
-  imports: [CommonModule, GenericTitle, CircularButton],
+  imports: [
+    CommonModule,
+    GenericTitle,
+    CircularButton,
+    UsedTechCard,
+    ScrollPagination,
+    DetectHorizontalOverflow,
+    ScrollButtons,
+  ],
 })
 export class OrbitTechnologyComponent implements AfterViewInit {
   //cx and cy are useless here, but when we have a different viewbox size, we can use them to center the orbit in the template
   cx = 785 / 2;
   cy = 780 / 2;
+
+
+  //we are calculating
+
+  iconsPerCard = 5;
+  cards: any[][] = [];
 
   iconsPerRing = 3;
 
@@ -33,46 +56,25 @@ export class OrbitTechnologyComponent implements AfterViewInit {
   ringTweens: gsap.core.Timeline[] = [];
 
   //some minimal stuff for styling
-  bgColors = ['bg-[#8EC3FF]', 'bg-[#172763]', 'bg-[#EEE9E9]', 'bg-wind-blue']
+  bgColors = ['bg-[#8EC3FF]', 'bg-[#172763]', 'bg-[#EEE9E9]', 'bg-wind-blue'];
   //          light blue  //                    dark blue  //                    light gray
-  sizes = ['w-8 h-8', 'w-10 h-10']
-
-  rings = [
-    {
-      radius: 250,
-      icons: [
-        { name: 'Angular', icon: '/orbit-technology/orbit-icons/angular.svg', color: 2 },
-        { name: 'Flutter', icon: '/orbit-technology/orbit-icons/flutter.svg', color: 3 },
-        { name: 'Github', icon: '/orbit-technology/orbit-icons/github.svg', color: 0 },
-      ],
-    },
-    {
-      radius: 270,
-      icons: [
-        { name: 'NestJS', icon: '/orbit-technology/orbit-icons/nestjs.svg', color: 0 },
-        {
-          name: 'Postgres',
-          icon: '/orbit-technology/orbit-icons/postgres.svg',
-          color: 1
-        },
-        { name: 'Node.js', icon: '/orbit-technology/orbit-icons/nodejs.svg', color: 2 },
-      ],
-    },
-    {
-      radius: 350,
-      icons: [
-        { name: 'ReactJS', icon: '/orbit-technology/orbit-icons/reactjs.svg', color: 1 },
-        {
-          name: 'SonarQube',
-          icon: '/orbit-technology/orbit-icons/sonarqube.svg',
-          color: 3
-        },
-        { name: 'VueJS', icon: '/orbit-technology/orbit-icons/vuejs.svg', color: 2 },
-      ],
-    },
-  ];
+  sizes = ['w-8 h-8', 'w-10 h-10'];
 
   @ViewChildren('icon') icons!: QueryList<ElementRef>;
+
+  rings = rings;
+
+
+  //pagination logic
+  @ViewChild('cardsScrollContainer', { static: false }) cardsScrollContainer!: HTMLElement;
+
+  //to get the width of the small screen cards for pagination
+  @ViewChildren('smallScreenCard') smallScreenCards!: QueryList<UsedTechCard>;
+
+
+
+  showScrollButtons: boolean = false;
+  cardWidth!: number;
 
   ngAfterViewInit() {
     //creating an icons array
@@ -133,12 +135,29 @@ export class OrbitTechnologyComponent implements AfterViewInit {
       });
     }
 
+    //pagination logic
+    this.updateCardWidth();
+    // Optional: Subscribe to changes if cards might change dynamically
+    this.smallScreenCards.changes.subscribe(() => {
+      this.updateCardWidth();
+    });
+
+  }
+
+  //pagination related
+  updateCardWidth() {
+    const smallScreenCard = this.smallScreenCards.first;
+    if (smallScreenCard) {
+      const cardElement = smallScreenCard.getCardElement();
+      this.cardWidth = cardElement.getBoundingClientRect().right;
+    } else {
+      console.log('No small-screen card found.');
+    }
   }
 
   getBgColor(i: number) {
     console.log(this.bgColors[i % this.bgColors.length]);
     return 'bg-[' + this.bgColors[i % this.bgColors.length] + ']';
-
   }
 
   circlePath(cx: number, cy: number, r: number): string {
@@ -149,6 +168,31 @@ export class OrbitTechnologyComponent implements AfterViewInit {
       'Z',
     ].join(' ');
   }
+
+  ngOnInit() {
+    this.cards = this.getCards(iconURLs);
+
+  }
+
+  getCards(icons: any) {
+    const cards = [];
+    for (let i = 0; i < iconURLs.length; i += this.iconsPerCard) {
+      const end = Math.min(i + this.iconsPerCard, iconURLs.length);
+      cards.push(iconURLs.slice(i, end));
+    }
+    return cards;
+  }
+
+  getCornerClass(index: number) {
+    const positions = [
+      'top-10 left-20', // top left
+      'bottom-12 right-20', // bottom right
+      'top-0 right-0', // top right
+      'bottom-0 left-0', // bottom left
+    ];
+    return positions[index % positions.length];
+  }
+
 }
 /*
 what we'll do for the icons:

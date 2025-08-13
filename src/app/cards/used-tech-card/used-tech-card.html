@@ -1,1 +1,15 @@
-<p>used-tech-card works!</p>
+<div #card class="pl-4 py-6 w-[380px] h-52 xl:w-96 xl:h-60 flex flex-col items-center justify-center gap-4 bg-[#EAF6FD] specialFont shadowCustom rounded-3xl">
+  <div class="w-full flex justify-start" >
+    <app-generic-title size="medium">Les Technologies</app-generic-title>
+  </div>
+  <div class="flex gap-2 text-xs text-links-blue flex-wrap">
+    <app-button-with-background *ngFor="let tech of visibleTechs"
+      [leftIcon]="tech.name"
+      [textColor]="'text-links-blue'"
+      [label]="tech.name"
+      [bgColor]="'bg-white'" [iconBgColor]="'bg-links-blue'" [strokeColor]="'white'" fillColor="white"
+                                height="h-8" width="min-w-28 !max-w-full"
+    >
+    </app-button-with-background>
+  </div>
+</div>

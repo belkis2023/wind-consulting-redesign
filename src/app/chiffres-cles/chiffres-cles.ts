@@ -47,5 +47,6 @@ export class ChiffresCles implements AfterViewInit {
     const cardElement = this.childCard.getCardElement();
     this.cardWidth = cardElement.offsetWidth;
 
+
   }
 }

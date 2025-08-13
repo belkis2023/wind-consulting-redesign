@@ -6,12 +6,20 @@
         [ngStyle]="backgroundStyles">
 
     <!-- Depending on the chosen icon, we will show what svg we want -->
-    <div  *ngIf="!iconPng" class="absolute">
+    <div  *ngIf="!iconPng && !techIcon" class="absolute">
         <app-icon [icon]="icon" [strokeColor]="strokeColor"
                     [strokeWidth]="strokeWidth">
         </app-icon>
     </div>
+
+    <div  *ngIf="techIcon" class="absolute">
+      <app-icon [techIcon]="techIcon" [strokeColor]="strokeColor"
+                [strokeWidth]="strokeWidth" [iconFillColor]="iconFillColor">
+      </app-icon>
+    </div>
+
     <ng-container *ngIf="iconPng">
-      <img class="w-6 h-6" [src]="iconPng"/>
+      <img class="w-6 h-6" [src]="iconPng" />
     </ng-container>
+
 </button>

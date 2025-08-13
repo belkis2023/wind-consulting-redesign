@@ -33,7 +33,7 @@ export class ScrollButtons {
     const gap = parseFloat(gapStr) || 0; // Default to 0 if gap is not set
     if(this.singleElementWidth) {
       this.scrollStep = this.singleElementWidth + gap;
-
+      console.log('Scroll step set to:', this.scrollStep);
     }
 
     const current = this.scrollTarget.scrollLeft;

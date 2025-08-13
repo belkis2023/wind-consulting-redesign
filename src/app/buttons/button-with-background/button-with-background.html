@@ -14,11 +14,24 @@
     </app-icon>
   </div>
 
-  <span class="absolute flex inset-0 items-center justify-center font-normal">
+  <span *ngIf="!leftIcon && label" class="absolute flex inset-0 items-center justify-center font-normal">
     {{ label }}
   </span>
   <div *ngIf="icon" class="absolute right-4 top-1/2 -translate-y-1/2">
     <app-icon [icon]="icon" [strokeColor]="strokeColor" [strokeWidth]="strokeWidth">
     </app-icon>
   </div>
+
+
+  <span *ngIf="leftIcon && label" class="pl-10 absolute flex inset-0 items-center">
+    {{ label }}
+  </span>
+  <div *ngIf="leftIcon"
+       class="absolute left-0 flex items-center z-30 inset-y-0">
+
+    <app-circular-button size="w-8 h-8" [techIcon]="leftIcon" [bgColor]="iconBgColor"
+                       [strokeColor]="strokeColor" [iconFillColor]="fillColor" >
+    </app-circular-button>
+  </div>
+
 </button>
