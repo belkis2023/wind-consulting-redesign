@@ -51,7 +51,7 @@ export class App implements OnInit {
   constructor(private locationProvider: LocationProvider) {}
 
   async ngOnInit() {
-    window.scrollTo(0, 0);
+
     await this.locationProvider.init();
     this.locations = this.locationProvider.getLocations();
   }
