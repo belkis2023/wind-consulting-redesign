@@ -3,7 +3,7 @@ import { NgClass, NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-generic-title',
-  imports: [NgClass],
+  imports: [NgClass, NgStyle],
   templateUrl: './generic-title.html',
   styleUrl: './generic-title.css',
 })
@@ -12,6 +12,7 @@ export class GenericTitle {
   @Input() color: string = 'text-[#172763]';
   @Input() boldness: string = 'font-normal';
   @Input() size!: string;
+  @Input() lineHeight: string = '1 !important';
 
   getClass() {
     switch (this.size) {

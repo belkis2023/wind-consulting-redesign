@@ -1,4 +1,4 @@
-<div #card class="relative rounded-xl bg-white w-[27rem] h-[27rem] overflow-hidden
+<div #card class="relative rounded-xl bg-white w-[92vw] h-[300px] xs:w-[80vw] sm:w-[27rem] sm:h-[27rem] overflow-hidden
                                 shadow-lg shadow-wind-blue/90"
       >
   <!-- image -->
@@ -10,9 +10,9 @@
   <!-- Content (text) -->
 
   <!-- title -->
-  <div #title class="absolute bottom-9 flex justify-center items-center left-1/2 -translate-x-1/2">
+  <div #title class="absolute bottom-5 flex justify-center items-center left-1/2 -translate-x-1/2">
     <div class="tracking-wider text-nowrap">
-      <app-generic-title size="medium" boldness="font-bold" color="text-wind-blue"
+      <app-generic-title lineHeight="1.6 !important" size="medium" boldness="font-bold" color="text-wind-blue"
                        style="line-height: 3">
         {{ chiffreCle.number }} <br> {{ chiffreCle.type }}
       </app-generic-title>
@@ -23,7 +23,7 @@
   <div #contentDiv class="absolute inset-x-10 inset-y-6 gap-6
               flex flex-col justify-center items-center text-center content-div">
 
-    <div class="specialFont text-lg text-wrap">
+    <div class="specialFont text-sm xs:text-base sm:text-lg text-wrap">
       {{ chiffreCle.description }}
     </div>
   </div>

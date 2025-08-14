@@ -1,8 +1,8 @@
-<div class="relative h-[900px] md:h-[900px]">
-  <div class="md:pt-36 flex justify-center items-center h-[500px] md:h-[700px]">
+<div class="relative h-[800px] sm:h-[900px]">
+  <div class="md:pt-36 flex justify-center items-center h-[400px] sm:h-[500px] md:h-[700px]">
     <!-- the logo in the middle -->
     <div
-      class="absolute size-72 md:size-96 opacity-60 z-20 flex justify-center items-center left-[52%] -translate-x-1/2"
+      class="absolute size-64 sm:size-72 md:size-96 opacity-60 z-20 flex justify-center items-center left-[52%] -translate-x-1/2"
     >
       <img src="/orbit-technology/orbit-center-logo.svg" />
     </div>
@@ -3979,7 +3979,7 @@
       </svg>
     </div>
 
-    <!-- the paths -->
+    <!-- the paths the icons will be following -->
     <div class="orbit-container absolute w-full h-full">
       <div class="absolute z-10 h-full w-full pointer-events-none">
 
@@ -4006,7 +4006,7 @@
 
           />
 
-          <!-- Circle radius 350 -->
+          <!-- Circle radius 370 -->
           <path
             id="orbitPath2"
             [attr.d] = "circlePath(cx, cy, 370)"
@@ -4024,11 +4024,11 @@
               #icon
               [attr.data-ring]="r"
               [attr.data-index]="i"
-              class="icon absolute w-10 h-10 cursor-pointer"
+              class="icon absolute cursor-pointer"
               [title]="tech.name"
             >
               <!--<img [src]="tech.icon" alt="{{tech.name}}" />-->
-              <app-circular-button size="w-12 h-12" [iconPng]="tech.icon" [bgColor]="bgColors[tech.color]"></app-circular-button>
+              <app-circular-button size="w-9 h-9 xs:w-10 xs:h-10 sm:w-12 sm:h-12" [iconPng]="tech.icon" [bgColor]="bgColors[tech.color]"></app-circular-button>
             </div>
           </ng-container>
         </ng-container>
@@ -4051,7 +4051,7 @@
   <!-- for small screens -->
   <div  #cardsScrollContainer appDetectHorizontalOverflow
         (isOverFlowing) = "showScrollButtons = $event"
-        class="scroll-smooth no-scrollbar w-[100%] absolute bottom-8 flex overflow-x-auto gap-8 px-12 md:hidden h-80">
+        class="scroll-smooth no-scrollbar w-[100%] absolute bottom-8 flex overflow-x-auto gap-8 px-3 xs:!px-12 md:hidden h-80">
     <app-used-tech-card  #smallScreenCard *ngFor="let card of cards" [visibleTechs]="card"></app-used-tech-card>
 
   </div>

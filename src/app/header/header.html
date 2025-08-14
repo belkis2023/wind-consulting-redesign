@@ -1,12 +1,11 @@
 <nav
   #navbar class="!fixed top-0 h-20 left-0 w-full z-50 bg-white
-  flex justify-between !items-center shadow-md gap-12 !px-10 lg:!px-16
+  flex justify-between !items-center shadow-md gap-12 px-3 sm:!px-10 lg:!px-16
   md:justify-start navbarBackground text-center">
 
   <!-- The logo -->
   <div #mainContent class="text-xl font-bold flex-shrink-0">
-    <img src="logo-wind.png" alt="logo" class="h-20 w-32
-        xs:w-[50px] xs:h-[50px]
+    <img src="logo-wind.png" alt="logo" class="h-16 w-24
         sm:h-16 sm:w-30" />
   </div>
 
@@ -90,7 +89,7 @@
   <div class="relative flex !w-full">
     <div class="!w-full">
       <input type="text" placeholder="Quel Sujet Vous Intéresse?"
-      class="w-full absolute pl-12 h-20 text-gray-700 bg-gray-100
+      class="w-full absolute pl-8 sm:pl-12 h-20 text-gray-700 bg-gray-100
         focus:outline-none focus:ring-2
         focus:ring-wind-blue focus:border-transparent duration-200
         rounded-none
@@ -100,7 +99,7 @@
     <!-- Mobile Search -->
     <!-- Clickable search icon on the right -->
 
-    <div class="md:hidden absolute !right-0 top-1/4 translate-y-1/4 pr-10">
+    <div class="md:hidden absolute !right-0 top-1/4 translate-y-1/4 pr-3 sm:pr-10">
       <app-circular-button icon="search" [outline]="true" outlineColor="border-links-blue" bgColor="bg-links-blue"
         size="w-12 h-12" [strokeWidth]=2 outlineWidth="border-2" strokeColor="stroke-white"
         bgImage="background-images/generic-background/background1.svg">

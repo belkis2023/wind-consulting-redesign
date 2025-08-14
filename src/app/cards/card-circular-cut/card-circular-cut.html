@@ -1,4 +1,4 @@
-<div class="relative w-9/12 md:w-10/12 h-[120vh] md:h-96 flex justify-self-center top-4 mb-12"
+<div class="relative w-[85vw] xs:w-9/12 md:w-10/12 h-[110vh] md:h-96 flex justify-self-center top-4 mb-12"
      [ngClass]="[getRoundedClass()]">
   <!-- Bottom base Layer: the blue + the bigger background image -->
   <div class="absolute inset-0 z-0 flex text-white
@@ -15,16 +15,16 @@
   </div>
 
 
-  <div class="flex flex-col md:flex-row space-y-4 md:space-y-0">
+  <div class="flex flex-col md:flex-row sm:space-y-4 md:space-y-0">
     <!-- content: title + description + button-->
-    <div class="absolute py-14 md:py-10 px-8 space-y-14 md:space-y-8 md:self-center lg:px-12
+    <div class="absolute py-8 sm:py-14 md:py-10 px-4 xs:px-8 space-y-5 xs:space-y-10 sm:space-y-14 md:space-y-4 md:self-center lg:px-12
               flex justify-start flex-col md:w-1/2">
       <!-- title + description -->
-      <div class="flex flex-col space-y-8 text-white specialFont">
+      <div class="flex flex-col space-y-4 xs:space-y-8 md:space-y-6 text-white specialFont">
         <p class="text-[#59EEFF]">
           {{ tag }}
         </p>
-        <h2 class="font-bold">
+        <h2 class="font-bold leading-6">
           {{ title }}
         </h2>
         <p class="text-sm leading-6 text-wrap">
@@ -33,28 +33,28 @@
       </div>
       <!-- button -->
 
-        <app-button-with-background
-          backgroundImageUrl="background-images/generic-background/background1-with-more-fill.svg" [label]="buttonLabel"
-          icon="arrow-up-right" width="w-[90%] md:w-48" height="h-10" [strokeWidth]="2" strokeColor="stroke-links-blue"
-          textColor="text-links-blue" [logo]="true" whichLogo="logoBlue" backgroundPosition="bottom" logoSize="size-10"
-          bgColor="bg-white" imageOpacity="opacity-100" class="flex justify-center md:justify-start">
-        </app-button-with-background>
+      <app-button-with-background
+        backgroundImageUrl="background-images/generic-background/background1-with-more-fill.svg" [label]="buttonLabel"
+        icon="arrow-up-right" width="w-[90%] md:w-48" height="h-10" [strokeWidth]="2" strokeColor="stroke-links-blue"
+        textColor="text-links-blue" [logo]="true" whichLogo="logoBlue" backgroundPosition="bottom" logoSize="size-10"
+        bgColor="bg-white" imageOpacity="opacity-100" class="flex justify-center md:justify-start">
+      </app-button-with-background>
 
 
     </div>
 
     <!-- the top layer: image + shadow + content -->
-    <div class="absolute bottom-0 md:inset-0 z-10 flex justify-end text-white h-1/2 md:h-auto"
+    <div class="absolute !bottom-0 md:inset-0 z-10 flex justify-end text-white h-1/2 md:h-auto"
          [ngClass]="[getRoundedClass()]">
       <!-- image + shadow -->
       <div class="relative w-full md:w-1/2 flex-shrink-0 right-0">
         <!-- image -->
         <img [src]= "imageUrl"
-             class="h-full w-full custom-curve-reverse-upside-down
+             class="relative top-20 md:top-0 h-[80%] md:h-full w-full custom-curve-reverse-upside-down
                   md:custom-curve-reverse object-fill z-10"
              [ngClass]="[getRoundedClass()]">
         <!-- shadow -->
-        <div class="absolute -z-10 bg-slate-400/70 w-full h-full bottom-4 md:right-4 md:top-0
+        <div class="absolute -z-10 bg-slate-400/70 w-full h-[80%] md:h-full bottom-4 md:right-4 md:top-0
                   custom-curve-reverse-upside-down md:custom-curve-reverse">
         </div>
       </div>

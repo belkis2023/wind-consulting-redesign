@@ -9,3 +9,4 @@ to fix later:
 - fix the nws section (make the width smaller depending on the screen(we don't always need scroll, just smaller cards)
 - make a bigger font size for the title in the news section
 - make the news section title scrollable
+- the orbit cards: add the svg icons effect (the gradient thing)

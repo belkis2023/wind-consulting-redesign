@@ -1,6 +1,7 @@
-<div class="relative chiffresClesBack overflow-hidden h-full py-8"
-      [ngClass]="{'!h-[125vh]': showScrollButtons,
+<div class="relative chiffresClesBack overflow-hidden h-full py-8 xs:py-12"
+      [ngClass]="{'!h-[110vh]': showScrollButtons,
                   '!h-[115vh]': !showScrollButtons}">
+  <!-- if u have to change th class again maybe just  -->
   <div class="absolute w-2/3 lg:w-2/5 h-[100%] z-10 right-0 top-1/2 -translate-y-1/2
               flex justify-end">
     <img src="/chiffres-cles/big-logo-back.svg"
@@ -21,7 +22,7 @@
       </app-generic-title>
     </div>
     <!-- now the description -->
-    <div class="specialFont text-[#59EEFF] text-lg text-center">
+    <div class="specialFont text-[#59EEFF] text-sm leading-6 sm:text-lg  text-center">
       <p>
         Wind Consulting vous apporte des solutions d’innovation digitale parfaitement adaptées à vos enjeux d’agilité.
       </p>
@@ -29,7 +30,7 @@
     <!-- now the cards -->
     <div #chiffresScrollContainer appDetectHorizontalOverflow
          (isOverFlowing) = "showScrollButtons = $event"
-         class="w-full scroll-smooth no-scrollbar overflow-x-auto flex gap-12 px-12 z-20"
+         class="w-full scroll-smooth no-scrollbar overflow-x-auto flex gap-10 px-2.5 xs:px-9 md:px-12 z-20"
           [ngClass]= "{'justify-center': !showScrollButtons}">
       <div *ngFor="let chiffre of chiffres; let i = index"
             class="!snap-start !flex-shrink-0">
