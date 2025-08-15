@@ -14,17 +14,17 @@ export class FooterLinks {
   services2: string[] = ['Nos services', 'Carrière', 'Contact'];
   contactInfo: { icon: string; link: string; text: string }[] = [
     {
-      icon: '/icons/phone.svg',
+      icon: '/public/icons/phone.svg',
       link: 'tel:+33612345678',
       text: '+216 73 671 986',
     },
     {
-      icon: '/icons/location.svg',
+      icon: '/public/icons/location.svg',
       link: '#',
       text: 'Rue Chaanbi MAHDIA, 5100',
     },
     {
-      icon: '/icons/mail.svg',
+      icon: '/public/icons/mail.svg',
       link: 'mailto:' + 'direction@wind-consulting-tunisia.com',
       text: 'direction@wind-consulting-tunisia.com',
     },

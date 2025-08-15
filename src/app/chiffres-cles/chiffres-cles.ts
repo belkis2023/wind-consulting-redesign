@@ -37,9 +37,9 @@ export class ChiffresCles implements AfterViewInit {
   ];
 
   backgroundImages: string[] = [
-    '/chiffres-cles/chiffre-card1.png',
-    '/chiffres-cles/chiffre-card2.png',
-    '/chiffres-cles/chiffre-card3.jpg'
+    '/public/chiffres-cles/chiffre-card1.png',
+    '/public/chiffres-cles/chiffre-card2.png',
+    '/public/chiffres-cles/chiffre-card3.jpg'
   ];
 
   ngAfterViewInit() {

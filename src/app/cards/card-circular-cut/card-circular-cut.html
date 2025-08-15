@@ -10,7 +10,7 @@
   <!-- the background image -->
   <!-- In here we're gonna have two effects, depending on the screen size -->
   <div class="absolute inset-x-0 top-0 md:bottom-0 h-1/2 md:h-full w-full md:w-2/6 bg-[100%_50%] opacity-60 blur-[0.4px]"
-       style="background-image: url('/background-images/generic-background/background1.svg');"
+       style="background-image: url('/public/background-images/generic-background/background1.svg');"
        [ngStyle]="dynamicStyles">
   </div>
 
@@ -34,7 +34,7 @@
       <!-- button -->
 
       <app-button-with-background
-        backgroundImageUrl="background-images/generic-background/background1-with-more-fill.svg" [label]="buttonLabel"
+        backgroundImageUrl="/public/background-images/generic-background/background1-with-more-fill.svg" [label]="buttonLabel"
         icon="arrow-up-right" width="w-[90%] md:w-48" height="h-10" [strokeWidth]="2" strokeColor="stroke-links-blue"
         textColor="text-links-blue" [logo]="true" whichLogo="logoBlue" backgroundPosition="bottom" logoSize="size-10"
         bgColor="bg-white" imageOpacity="opacity-100" class="flex justify-center md:justify-start">

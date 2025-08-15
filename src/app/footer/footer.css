@@ -3,7 +3,7 @@
 }
 
 .footer-image-back {
-  background-image: url('/background-images/generic-background/background1.svg');
+  background-image: url('/public/background-images/generic-background/background1.svg');
   background-size: contain;
   mask-image: linear-gradient(to top,  rgba(0, 0, 0, 0.5) 10%,
                                         rgba(0, 0, 0, 0) 40%);

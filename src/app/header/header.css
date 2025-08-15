@@ -2,7 +2,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
-    background-image: url('/background-images/navbar-background.jpg');
+    background-image: url('/public/background-images/navbar-background.jpg');
     width: 100%;
     height: auto;
 }

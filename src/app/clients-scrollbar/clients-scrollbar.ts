@@ -49,27 +49,27 @@ export class ClientsScrollbar implements AfterViewInit {
 
   clientLogoData: Record<string, ClientLogoData> = {
     'i-dair': {
-      path: '/background-images/clients/client1.png',
+      path: '/public/background-images/clients/client1.png',
       width: this.defaultW,
       height: this.defaultH,
     },
     worldSoftGroup: {
-      path: '/background-images/clients/client2.png',
+      path: '/public/background-images/clients/client2.png',
       width: 'w-28',
       height: 'h-8',
     },
     cnam: {
-      path: '/background-images/clients/client3.png',
+      path: '/public/background-images/clients/client3.png',
       width: 'w-28',
       height: 'h-14',
     },
     ebsys: {
-      path: '/background-images/clients/client4.png',
+      path: '/public/background-images/clients/client4.png',
       width: 'w-28',
       height: 'h-8',
     },
     'sopra hr': {
-      path: '/background-images/clients/client5.png',
+      path: '/public/background-images/clients/client5.png',
       width: 'w-28',
       height: 'h-18',
     },

@@ -4,7 +4,7 @@
   <!-- if u have to change th class again maybe just  -->
   <div class="absolute w-2/3 lg:w-2/5 h-[100%] z-10 right-0 top-1/2 -translate-y-1/2
               flex justify-end">
-    <img src="/chiffres-cles/big-logo-back.svg"
+    <img src="/public/chiffres-cles/big-logo-back.svg"
     class="absolute h-full w-full scale-y-125 md:scale-x-110 md:scale-y-100 object-cover filter saturate-90"
          [ngClass]="{'!scale-y-110': showScrollButtons}">
   </div>
@@ -12,7 +12,7 @@
   <div class="flex flex-col mt-4 justify-center gap-4 items-center overflow-hidden">
     <!-- now the top logo -->
     <div class="flex justify-center items-center w-32 h-12">
-      <img class="h-full" src="/logo-wind-white.png"/>
+      <img class="h-full" src="/public/logo-wind-white.png"/>
     </div>
 
     <!-- now the title -->
@@ -46,7 +46,7 @@
           class="flex justify-center items-center gap-4 z-20 mt-2">
       <app-circular-button class="md:pr-8" (click)="scrollBtns.scroll('left')" [icon]="'left-scroll'"
                            [bgColor]="'bg-wind-blue'" [strokeColor]="'stroke-white'" [strokeWidth]=2
-                           bgImage="background-images/generic-background/background1.svg">
+                           bgImage="/public/background-images/generic-background/background1.svg">
 
       </app-circular-button>
       <app-scroll-pagination [scrollContainer]="chiffresScrollContainer" [singleElementWidth]="cardWidth"
@@ -54,7 +54,7 @@
       </app-scroll-pagination>
       <app-circular-button class="md:pl-8" (click)="scrollBtns.scroll('right')" [icon]="'right-scroll'"
                            [bgColor]="'bg-wind-blue'" [strokeColor]="'stroke-white'" [strokeWidth]=2
-                           bgImage="background-images/generic-background/background1.svg">
+                           bgImage="/public/background-images/generic-background/background1.svg">
 
       </app-circular-button>
 
