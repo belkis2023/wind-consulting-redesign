@@ -1,5 +1,5 @@
-<div class="flex flex-col gap-4">
-    <hr class="border-2 w-[90%] mx-auto border-wind-blue">
+<div class="page-container flex flex-col gap-4">
+    <hr class="border-2 border-wind-blue">
     <app-generic-title size="medium">
         <span class="text-blue-600">Clients </span>qui nous font confiance
     </app-generic-title>
@@ -8,7 +8,7 @@
 
             <!-- left button -->
             <div *ngIf="showScrollButtons" appScrollButtons [scrollTarget]="clientScrollContainer" #scrollBtns = "ScrollButtons"
-                 class="col-span-1 row-start-2 md:col-start-1 md:row-start-1 flex justify-end md:justify-end">
+                 class="col-span-1 row-start-2 md:col-start-1 md:row-start-1 flex">
                 <app-circular-button class="md:pr-8" (click)="scrollBtns.scroll('left')" [icon]="'left-scroll'"
                     [bgColor]="'bg-wind-blue'" [strokeColor]="'stroke-white'" [strokeWidth]=2
                     bgImage="/public/background-images/generic-background/background1.svg">
@@ -35,7 +35,7 @@
 
             <!-- right button -->
             <div *ngIf="showScrollButtons" appScrollButtons [scrollTarget]="clientScrollContainer" #scrollBtns = "ScrollButtons"
-                 class="col-span-1 row-start-2 md:row-start-1 md:col-start-3 flex justify-start md:justify-start">
+                 class="col-span-1 row-start-2 md:row-start-1 md:col-start-3 flex justify-end">
                 <app-circular-button class="md:pl-8" (click)="scrollBtns.scroll('right')" [icon]="'right-scroll'"
                     [bgColor]="'bg-wind-blue'" [strokeColor]="'stroke-white'" [strokeWidth]=2
                     bgImage="/public/background-images/generic-background/background1.svg">

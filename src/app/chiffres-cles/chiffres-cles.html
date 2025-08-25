@@ -9,7 +9,7 @@
          [ngClass]="{'!scale-y-110': showScrollButtons}">
   </div>
   <!-- top logo + text + cards -->
-  <div class="flex flex-col mt-4 justify-center gap-4 items-center overflow-hidden">
+  <div class="page-container flex flex-col mt-4 justify-center gap-4 items-center overflow-hidden">
     <!-- now the top logo -->
     <div class="flex justify-center items-center w-32 h-12">
       <img class="h-full" src="/public/logo-wind-white.png"/>
@@ -30,7 +30,7 @@
     <!-- now the cards -->
     <div #chiffresScrollContainer appDetectHorizontalOverflow
          (isOverFlowing) = "showScrollButtons = $event"
-         class="w-full scroll-smooth no-scrollbar overflow-x-auto flex gap-10 px-2.5 xs:px-9 md:px-12 z-20"
+         class=" scroll-smooth no-scrollbar overflow-x-auto flex gap-10 z-20"
           [ngClass]= "{'justify-center': !showScrollButtons}">
       <div *ngFor="let chiffre of chiffres; let i = index"
             class="!snap-start !flex-shrink-0">
