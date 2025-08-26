@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { GenericTitle } from '../generic-title/generic-title/generic-title';
 import { CardWithHorizontalLines } from '../cards/card-with-horizontal-lines/card-with-horizontal-lines';
 import { CommonModule } from '@angular/common';
@@ -6,6 +6,7 @@ import { DetectHorizontalOverflow } from '../directives/detect-horizontal-overfl
 import { CircularButton } from '../buttons/circular-button/circular-button';
 import { ScrollButtons } from '../directives/scroll-buttons';
 import { ScrollPagination } from '../scroll-pagination/scroll-pagination';
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-news',
@@ -21,10 +22,12 @@ import { ScrollPagination } from '../scroll-pagination/scroll-pagination';
   templateUrl: './news.html',
   styleUrl: './news.css',
 })
-export class News {
-
+export class News implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('newsScrollSection') newsScrollSection!: HTMLElement;
   //@ViewChild('singleCard') singleCard!: HTMLElement;
+
+  @ViewChild('sliderContainer') sliderContainer!: ElementRef;
+  private animation!: gsap.core.Tween;
 
   cardWidth: number = 0;
 
@@ -37,11 +40,45 @@ export class News {
 
   //get the width of the card from the card component (the child)
   @ViewChild(CardWithHorizontalLines) childCard!: CardWithHorizontalLines;
-  ngAfterViewInit() {
 
+  ngOnInit() {}
+
+  ngOnDestroy() {
+    if (this.animation) {
+      this.animation.kill();
+    }
+  }
+
+  ngAfterViewInit() {
     const cardElement = this.childCard.getCardElement();
     this.cardWidth = cardElement.getBoundingClientRect().right;
+    this.initializeAnimation();
+  }
 
+  private initializeAnimation() {
+    const container = this.sliderContainer.nativeElement;
+    const firstChild = container.children[0] as HTMLElement;
+    setTimeout(() => {
+      const textWidth = firstChild.offsetWidth;
+
+      gsap.set(container, { x: 0 });
+
+      this.animation = gsap.to(container, {
+        x: -textWidth,
+        duration: 15,
+        ease: 'none',
+        repeat: -1,
+        repeatDelay: 0
+      });
+    }, 100);
+  }
+
+  pauseAnimation() {
+    this.animation.pause();
+  }
+
+  resumeAnimation() {
+    this.animation.resume();
   }
 
 }
