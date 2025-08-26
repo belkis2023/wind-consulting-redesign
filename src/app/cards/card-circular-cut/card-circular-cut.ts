@@ -53,10 +53,10 @@ export class CardCircularCut {
     switch (this.round) {
       case 'full':
         return 'rounded-full';
+      case 'xl':
+        return 'rounded-2xl';
       case 'lg':
         return 'rounded-2xl md:rounded-lg';
-      case 'xl':
-        return 'rounded-xl';
       default:
         return '';
     }

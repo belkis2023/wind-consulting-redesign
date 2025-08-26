@@ -10,14 +10,14 @@
   <div class="relative w-full z-10 h-full flex">
 
     <!-- here is the top part: links and logo and stuff -->
-    <div class="absolute top-56 md:top-32 w-[90%] flex left-1/2 -translate-x-1/2">
+    <div class="absolute page-container top-56 md:top-32 w-full flex left-1/2 -translate-x-1/2">
       <app-footer-links></app-footer-links>
     </div>
 
     <!-- here is the bottom credits/rights: only visible in md and larger screens  -->
-    <div class="hidden absolute md:flex flex-col w-full !bottom-8">
-      <hr class="border-3 opacity-100 w-[90%] border-white mx-auto">
-      <div class="!w-[90%] mx-auto flex justify-between mt-8 text-sm">
+    <div class="hidden page-container absolute md:flex flex-col !w-full !bottom-8 overflow-hidden">
+      <hr class="border-3 opacity-100 w-full border-white mx-auto">
+      <div class="w-[100%] flex justify-between flex-nowrap mt-8 text-sm">
         <p>
           Tous droits réservés – Designed by Wind Consulting
         </p>

@@ -24,7 +24,7 @@ import { chiffreCle } from '../models/project';
 })
 export class ChiffresCles implements AfterViewInit {
   @ViewChild('chiffresScrollContainer', { static: false })
-  chiffresScrollContainer!: HTMLElement;
+  chiffresScrollContainer!: ElementRef<HTMLElement>;
   @ViewChild(ChiffresClesCard) childCard!: ChiffresClesCard;
 
   showScrollButtons: boolean = false;
@@ -42,11 +42,15 @@ export class ChiffresCles implements AfterViewInit {
     '/public/chiffres-cles/chiffre-card3.jpg'
   ];
 
+
   ngAfterViewInit() {
-    if (!this.chiffresScrollContainer) return; //make sure it's not null
+
+
     const cardElement = this.childCard.getCardElement();
     this.cardWidth = cardElement.offsetWidth;
 
 
   }
+
+
 }
