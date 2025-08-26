@@ -3,7 +3,7 @@
   <div class="md:logo-mission">
     <div class="flex flex-col items-center md:items-start gap-3">
       <img class=" w-36 h-16 xs:w-40 xs:h-20" src="/public/logo-wind-white.png"/>
-      <p class="text-xs text-center md:!text-left md:pr-4 px-10 xs:px-20 sm:px-32 md:px-0" style="line-height: 2">
+      <p class="text-base text-center md:!text-left md:pr-9 px-10 xs:px-20 sm:px-32 md:px-0" style="line-height: 2">
         Wind Consulting a pour mission de concevoir
         et mettre en oeuvre les meilleures solutions Software visant
         à améliorer la productivité la rentabilité et la réactivité des entreprises  sur leur marché.
@@ -29,17 +29,17 @@
   </div>
 
   <!-- links -->
-  <div class="items-center md:items-start flex flex-col gap-4 pt-8 md:pt-20">
+  <div class="items-center md:items-start flex flex-col gap-4 md:!gap-10 pt-8 md:pt-20">
     <a *ngFor="let service of services1"
-    href="#" class="text-white text-sm specialFont
+    href="#" class="text-white text-base specialFont
      transition-colors !no-underline">
       {{ service }}
     </a>
   </div>
 
-  <div class="flex flex-col items-center md:items-start gap-4 pt-8 md:pt-20">
+  <div class="flex flex-col items-center md:items-start gap-4 md:!gap-10 pt-8 md:pt-20">
     <a *ngFor="let service of services2"
-       href="#" class="text-white text-sm specialFont
+       href="#" class="text-white text-base specialFont
      transition-colors !no-underline">
       {{ service }}
     </a>
@@ -48,7 +48,7 @@
   <!-- contact info -->
   <div class="flex flex-col items-center md:items-start gap-4 pt-8 md:pt-20 pb-8">
     <hr class="md:hidden block border-3 opacity-100 w-[90%] border-white mx-auto">
-    <span class="text-white text-sm specialFont">
+    <span class="text-white text-base specialFont">
       Contactez-nous
     </span>
     <app-contact-item *ngFor="let contact of contactInfo"

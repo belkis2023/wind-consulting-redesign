@@ -1,10 +1,10 @@
-<div class="page-container flex flex-col gap-4">
+<div class="page-container flex flex-col gap-14">
     <hr class="border-2 border-wind-blue">
     <app-generic-title size="medium">
         <span class="text-blue-600">Clients </span>qui nous font confiance
     </app-generic-title>
     <!-- grid layout -->
-    <div class="grid grid-cols-3 md:grid-cols-[1fr_9fr_1fr] grid-rows-2 gap-4 items-center">
+    <div class="grid grid-cols-3 md:grid-cols-[1fr_9fr_1fr] grid-rows-[2fr_1fr] gap-4 items-center">
 
             <!-- left button -->
             <div *ngIf="showScrollButtons" appScrollButtons [scrollTarget]="clientScrollContainer" #scrollBtns = "ScrollButtons"
@@ -22,7 +22,7 @@
                      (isOverFlowing)="showScrollButtons = $event"
                       class="overflow-x-auto flex
                       scroll-smooth no-scrollbar px-6 md:px-0
-                      flex-1 gap-14"
+                      flex-1 gap-10"
                      [ngClass]= "{'justify-center': !showScrollButtons}">
                     <div class="inline-block" *ngFor="let client of clients; index as i">
                         <app-client-card [clientName]="client" [clientLogoData]="getClientLogoData(client)"

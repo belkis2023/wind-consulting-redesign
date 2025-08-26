@@ -34,8 +34,8 @@ export class ClientsScrollbar implements AfterViewInit {
   @ViewChild('clientScrollContainer', { static: false })
   clientScrollContainer!: ElementRef<HTMLDivElement>;
 
-  defaultW: string = 'w-30';
-  defaultH: string = 'h-12';
+  defaultW: string = 'w-40';
+  defaultH: string = 'h-14';
   showScrollButtons: boolean = false;
 
   /*  pagesCount = 0;
@@ -55,23 +55,23 @@ export class ClientsScrollbar implements AfterViewInit {
     },
     worldSoftGroup: {
       path: '/public/background-images/clients/client2.png',
-      width: 'w-28',
-      height: 'h-8',
+      width: this.defaultW,
+      height: 'h-10',
     },
     cnam: {
       path: '/public/background-images/clients/client3.png',
-      width: 'w-28',
-      height: 'h-14',
+      width: 'w-36',
+      height: 'h-20',
     },
     ebsys: {
       path: '/public/background-images/clients/client4.png',
-      width: 'w-28',
-      height: 'h-8',
+      width: 'w-36',
+      height: 'h-12',
     },
     'sopra hr': {
       path: '/public/background-images/clients/client5.png',
-      width: 'w-28',
-      height: 'h-18',
+      width: 'w-40',
+      height: 'h-36',
     },
   };
 

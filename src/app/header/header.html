@@ -6,7 +6,7 @@
   <!-- The logo -->
   <div #mainContent class="text-xl font-bold flex-shrink-0">
     <img src="/public/logo-wind.png" alt="logo" class="h-16 w-24
-        sm:h-16 sm:w-30" />
+        sm:h-16 sm:w-32" />
   </div>
 
   <!-- Desktop View -->
@@ -14,7 +14,7 @@
   <!-- the links on the navbar -->
   <div #mainContent class="hidden md:flex items-center gap-6 text-primary">
     <div *ngFor="let service of Services">
-      <a href="#" class="!block !text-links-blue !py-2 !text-l
+      <a href="#" class="!block !text-links-blue !py-2 !text-lg
         !font-medium transition-colors !no-underline">
         {{ service }}
       </a>
@@ -28,7 +28,7 @@
     <!-- The contact us button -->
     <div *ngIf="showContactUsButton">
       <app-button-with-background backgroundImageUrl="/public/background-images/generic-background/background1.svg"
-        label="Contacter Nous" width="w-48" height="h-10"
+        label="Contacter Nous" width="w-48" height="h-10" class="!text-base"
         [logo]=true logoSize="size-10" backgroundPosition="bottom">
 
       </app-button-with-background>
