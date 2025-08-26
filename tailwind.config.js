@@ -19,7 +19,7 @@ module.exports = {
       },
       screens: {
         'xs': '375px',
-      }
+      },
     },
   },
   plugins: [
@@ -30,6 +30,9 @@ module.exports = {
         '.subtle-inner-shadow': {
           'box-shadow': '3px 5px 44px -9px rgba(52, 47, 47, 0.75) inset',
         },
+        '.used-tech-icon-gradient': {
+          background: 'linear-gradient(90deg, #0677B9 0%, #055A8B 65%, #05507A 88%)'
+      }
       });
     }),
   ],

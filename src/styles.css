@@ -44,7 +44,6 @@
     clip-path: ellipse(90% 100% at 95% 50%);
   }
 
-
   .custom-curve-reverse-upside-down {
     clip-path: ellipse(100% 90% at 50% 95%);
   }

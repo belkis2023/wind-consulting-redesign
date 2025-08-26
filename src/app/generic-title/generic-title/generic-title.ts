@@ -16,6 +16,8 @@ export class GenericTitle {
 
   getClass() {
     switch (this.size) {
+      case 'xsmall':
+        return '!text-base md:!text-2xl';
       case 'small':
         return '!text-lg md:!text-3xl';
       case 'medium':

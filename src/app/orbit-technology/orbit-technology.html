@@ -1,5 +1,5 @@
 <div class="relative h-[800px] sm:h-[900px]">
-  <div class="md:pt-36 flex justify-center items-center h-[400px] sm:h-[500px] md:h-[700px]">
+  <div #orbitSection class="md:pt-36 flex justify-center items-center h-[400px] sm:h-[500px] md:h-[700px]">
     <!-- the logo in the middle -->
     <div
       class="absolute size-64 sm:size-72 md:size-96 opacity-60 z-20 flex justify-center items-center left-[52%] -translate-x-1/2"
@@ -4016,7 +4016,7 @@
         </svg>
 
       </div>
-
+      <!-- icons -->
       <div class="absolute inset-0 z-20">
         <ng-container *ngFor="let ring of rings; let r = index">
           <ng-container *ngFor="let tech of ring.icons; let i = index">
@@ -4034,17 +4034,18 @@
         </ng-container>
       </div>
     </div>
+
+  </div>
+  <div>
     <!-- cards on large screens -->
     <ng-container *ngFor="let card of cards; let i = index">
       <div
         class="absolute hidden z-30 md:block"
         [ngClass]="getCornerClass(i)"
       >
-        <app-used-tech-card  [visibleTechs]="card"></app-used-tech-card>
+        <app-used-tech-card class="side-card" [visibleTechs]="card"></app-used-tech-card>
       </div>
     </ng-container>
-
-
   </div>
 
 

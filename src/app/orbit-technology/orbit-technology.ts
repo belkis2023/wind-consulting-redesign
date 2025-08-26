@@ -17,10 +17,12 @@ import { UsedTechCard } from '../cards/used-tech-card/used-tech-card';
 import { ScrollPagination } from '../scroll-pagination/scroll-pagination';
 import { DetectHorizontalOverflow } from '../directives/detect-horizontal-overflow';
 import { ScrollButtons } from '../directives/scroll-buttons';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { CSSPlugin } from 'gsap/CSSPlugin';
 import { ChiffresClesCard } from '../cards/chiffres-cles-card/chiffres-cles-card';
 
 gsap.registerPlugin(MotionPathPlugin);
-
+gsap.registerPlugin(ScrollTrigger, CSSPlugin);
 
 
 @Component({
@@ -43,6 +45,7 @@ export class OrbitTechnologyComponent implements AfterViewInit {
   cx = 785 / 2;
   cy = 780 / 2;
 
+  @ViewChild("orbitSection") orbitSection!: ElementRef;
 
   //we are calculating
 
@@ -77,6 +80,9 @@ export class OrbitTechnologyComponent implements AfterViewInit {
   cardWidth!: number;
 
   ngAfterViewInit() {
+
+    //how the
+    this.triggerOrbitSection();
     //creating an icons array
     const iconsArray = this.icons.toArray();
 
@@ -144,6 +150,55 @@ export class OrbitTechnologyComponent implements AfterViewInit {
 
   }
 
+  //scroll trigger animation
+  triggerOrbitSection() {
+    // Orbit animation
+    const section = this.orbitSection.nativeElement;
+
+    gsap.set(section, {
+      scale: 0.4,
+      clipPath: "circle(0% at 50% 50%)",
+      filter: "blur(1px)"
+    });
+
+    gsap.to(section, {
+      scale: 1,
+      clipPath: "circle(150% at 50% 50%)",
+      filter: "blur(0px)",
+      scrollTrigger: {
+        trigger: section,
+        start: "top 80%",
+        end: "top 30%",
+        scrub: 1.5,
+      }
+    });
+
+    // Side cards animation (separate trigger)
+    const sideCards = document.querySelectorAll('.side-card');
+
+    gsap.fromTo(sideCards,
+      {
+        opacity: 0,
+        y: 50,
+        scale: 0.8
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1.5,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sideCards,
+          start: "top 85%",
+          toggleActions: "play pause resume reverse",
+        }
+      }
+    );
+
+
+  }
+
   //pagination related
   updateCardWidth() {
     const smallScreenCard = this.smallScreenCards.first;
@@ -185,8 +240,8 @@ export class OrbitTechnologyComponent implements AfterViewInit {
 
   getCornerClass(index: number) {
     const positions = [
-      'top-10 left-20', // top left
-      'bottom-12 right-20', // bottom right
+      'top-32 left-40', // top left
+      'bottom-32 right-40', // bottom right
       'top-0 right-0', // top right
       'bottom-0 left-0', // bottom left
     ];
