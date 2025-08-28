@@ -25,7 +25,7 @@ export class GenericTitle {
       case 'large':
         return '!text-3xl md:!text-5xl';
       case 'xlarge':
-        return '!text-4xl md:!text-8xl';
+        return '!text-3xl md:!text-8xl';
       default:
         return '!text-xl md:!text-4xl';
     }

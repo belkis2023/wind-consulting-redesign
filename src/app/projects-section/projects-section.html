@@ -1,6 +1,6 @@
 <div class="w-full h-full overflow-hidden
             m-0 shrink-0 !-mt-6 sm:mt-5">
-    <div class="flex flex-row md:!flex-col !mb-4 slides">
+    <div class="flex flex-row md:!flex-col !mb-4 slides gap-4">
         <div *ngFor="let project of projects$ | async; let i = index">
             <app-project-card [bgColor] ="i % 2 === 0 ? bgColors[0] : bgColors[1]"
                             [project] = "project"

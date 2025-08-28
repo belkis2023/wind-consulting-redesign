@@ -10,3 +10,7 @@ to fix later:
 - make a bigger font size for the title in the news section
 - make the news section title scrollable
 - the orbit cards: add the svg icons effect (the gradient thing)
+
+
+**change news style for mobile view**
+**recruitement image needs immediate fixing**

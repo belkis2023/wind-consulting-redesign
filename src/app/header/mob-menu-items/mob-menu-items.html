@@ -1,11 +1,11 @@
 <div class="relative flex flex-col px-4 py-6 h-[100vh]">
     <div class="space-y-4 overflow-auto">
-        <div class="flex flex-row items-center justify-between" 
+        <div class="flex flex-row items-center justify-between"
             *ngFor="let service of services">
-            <a href="#" class="!block !text-links-blue !py-2 !text-xl !font-medium transition-colors !no-underline">
+            <a href="#" class="!block !text-links-blue !py-2 !text-lg sm:!text-xl !font-medium transition-colors !no-underline">
                 {{ service }}
             </a>
-            <app-icon [icon]="'arrow-up-right'" 
+            <app-icon [icon]="'arrow-up-right'"
                     strokeColor="stroke-links-blue"
                     [strokeWidth]=2></app-icon>
         </div>
