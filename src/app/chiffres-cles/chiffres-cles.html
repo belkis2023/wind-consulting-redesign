@@ -26,13 +26,15 @@
         Wind Consulting vous apporte des solutions d’innovation digitale parfaitement adaptées à vos enjeux d’agilité.
       </p>
     </div>
+
     <!-- now the cards -->
     <div #chiffresScrollContainer appDetectHorizontalOverflow
          (isOverFlowing) = "showScrollButtons = $event"
-         class="w-[100%] scroll-smooth no-scrollbar overflow-x-auto flex gap-11 z-20"
-          [ngClass]= "{'justify-center': !showScrollButtons}">
+         class="page-container w-screen snap-x snap-mandatory scroll-smooth no-scrollbar overflow-x-auto flex gap-11 z-20"
+         [class.justify-center]="!showScrollButtons"
+         [class.justify-start]="showScrollButtons">
       <div *ngFor="let chiffre of chiffres; let i = index"
-            class="!snap-start !flex-shrink-0">
+           class="snap-center flex-shrink-0 !mx-auto !first:ml-auto !last:mr-auto">
         <app-chiffres-cles-card [chiffreCle] = "chiffre"
                                 [imageUrl]="backgroundImages[i]">
         </app-chiffres-cles-card>
@@ -65,4 +67,7 @@
 
 </div>
 
+<!--
+[ngClass]= "{'justify-center': !showScrollButtons}"
+-->
 

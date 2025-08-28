@@ -4052,7 +4052,7 @@
   <!-- for small screens -->
   <div  #cardsScrollContainer appDetectHorizontalOverflow
         (isOverFlowing) = "showScrollButtons = $event"
-        class="scroll-smooth no-scrollbar w-[100%] absolute page-container bottom-8 flex overflow-x-auto gap-8 xs:!px-12 md:hidden h-80">
+        class="scroll-smooth no-scrollbar w-[100%] absolute page-container bottom-8 flex overflow-x-auto gap-7 md:hidden h-80">
     <app-used-tech-card  #smallScreenCard *ngFor="let card of cards" [visibleTechs]="card"></app-used-tech-card>
 
   </div>
