@@ -4052,14 +4052,14 @@
   <!-- for small screens -->
   <div  #cardsScrollContainer appDetectHorizontalOverflow
         (isOverFlowing) = "showScrollButtons = $event"
-        class="scroll-smooth no-scrollbar w-[100%] absolute bottom-8 flex overflow-x-auto gap-8 px-3 xs:!px-12 md:hidden h-80">
+        class="scroll-smooth no-scrollbar w-[100%] absolute page-container bottom-8 flex overflow-x-auto gap-8 xs:!px-12 md:hidden h-80">
     <app-used-tech-card  #smallScreenCard *ngFor="let card of cards" [visibleTechs]="card"></app-used-tech-card>
 
   </div>
 
   <div *ngIf="showScrollButtons" appScrollButtons [scrollTarget]="cardsScrollContainer" [singleElementWidth]="cardWidth"
        #scrollBtns = "ScrollButtons"
-       class="absolute bottom-12 flex justify-center left-1/2 -translate-x-1/2 items-center gap-4 z-20 mt-2">
+       class="absolute page-container bottom-12 flex justify-between w-full left-1/2 -translate-x-1/2 items-center gap-4 z-20 mt-2">
     <app-circular-button class="md:pr-8" (click)="scrollBtns.scroll('left')" [icon]="'left-scroll'"
                          [bgColor]="'bg-wind-blue'" [strokeColor]="'stroke-white'" [strokeWidth]=2
                          bgImage="/public/background-images/generic-background/background1.svg">
