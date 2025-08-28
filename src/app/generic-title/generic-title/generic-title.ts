@@ -17,15 +17,15 @@ export class GenericTitle {
   getClass() {
     switch (this.size) {
       case 'xsmall':
-        return '!text-base md:!text-2xl';
+        return '!text-base xs:!text-lg sm:!text-xl md:!text-2xl';
       case 'small':
-        return '!text-lg md:!text-3xl';
+        return '!text-lg xs:!text-xl sm:!text-2xl md:!text-3xl';
       case 'medium':
-        return '!text-lg xs:!text-xl md:!text-4xl';
+        return '!text-lg xs:!text-[25px] sm:!text-3xl md:!text-4xl';
       case 'large':
         return '!text-3xl md:!text-5xl';
       case 'xlarge':
-        return '!text-3xl md:!text-8xl';
+        return '!text-3xl xs:!text-4xl sm:!text-5xl md:!text-8xl';
       default:
         return '!text-xl md:!text-4xl';
     }

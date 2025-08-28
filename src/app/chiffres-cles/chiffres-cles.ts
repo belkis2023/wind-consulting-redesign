@@ -60,7 +60,7 @@ export class ChiffresCles implements AfterViewInit {
 
       // Conditional heights based on boolean + screen size
       'h-96 sm:h-40 md:h-[790px]': !this.showScrollButtons,
-      'h-[750px] sm:h-80 md:h-96': this.showScrollButtons
+      'h-[750px] xs:h-[800px] sm:h-[830px] md:h-96': this.showScrollButtons
     };
 
 }

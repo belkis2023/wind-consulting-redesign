@@ -17,10 +17,11 @@
 
   <div class="flex flex-col md:flex-row">
     <!-- content: title + description + button-->
-    <div class="absolute py-8 sm:py-14 md:py-10 px-4 xs:px-8 space-y-5 xs:space-y-10 sm:space-y-14 md:space-y-4 md:self-center lg:!px-14 gap-7 xs:gap-2 sm:!gap-6
+    <div class="absolute py-8 sm:py-14 md:py-10 px-4 xs:px-10 sm:!px-16 space-y-5 xs:space-y-10
+        sm:space-y-14 md:space-y-4 md:self-center lg:!px-14 gap-7 xs:gap-2 sm:!gap-6
               flex justify-start flex-col md:w-1/2">
       <!-- title + description -->
-      <div class="flex sm:text-lg flex-col space-y-4 xs:space-y-8 md:space-y-6 text-white specialFont sm:!gap-6">
+      <div class="flex sm:text-lg flex-col space-y-4 xs:space-y-8 md:space-y-6 text-white specialFont sm:!gap-2">
         <p class="text-[#59EEFF]">
           {{ tag }}
         </p>
@@ -33,12 +34,14 @@
       </div>
       <!-- button -->
 
-      <app-button-with-background
-        backgroundImageUrl="/public/background-images/generic-background/background1-with-more-fill.svg" [label]="buttonLabel"
-        icon="arrow-up-right" width="w-[90%] md:w-48" height="h-10" [strokeWidth]="2" strokeColor="stroke-links-blue"
-        textColor="text-links-blue" [logo]="true" whichLogo="logoBlue" backgroundPosition="bottom" logoSize="size-10"
-        bgColor="bg-white" imageOpacity="opacity-100" class="flex justify-center md:justify-start">
-      </app-button-with-background>
+      <div class="relative xs:!-bottom-2 sm:!bottom-10">
+        <app-button-with-background
+          backgroundImageUrl="/public/background-images/generic-background/background1-with-more-fill.svg" [label]="buttonLabel"
+          icon="arrow-up-right" width="w-[90%] sm:w-64 md:w-48" height="h-10" [strokeWidth]="2" strokeColor="stroke-links-blue"
+          textColor="text-links-blue" [logo]="true" whichLogo="logoBlue" backgroundPosition="bottom" logoSize="size-10"
+          bgColor="bg-white" imageOpacity="opacity-100" class="flex justify-center md:justify-start">
+        </app-button-with-background>
+      </div>
 
 
     </div>
@@ -50,7 +53,7 @@
       <div class="relative w-full md:w-1/2 flex-shrink-0 right-0">
         <!-- image -->
         <img [src]= "imageUrl"
-             class="relative top-20 md:top-0 h-[80%] md:h-full w-full custom-curve-reverse-upside-down
+             class="relative top-20 md:top-0 h-[80%] md:h-full w-[100vw] custom-curve-reverse-upside-down
                   md:custom-curve-reverse object-fill z-10"
              [ngClass]="[getRoundedClass()]">
         <!-- shadow -->
