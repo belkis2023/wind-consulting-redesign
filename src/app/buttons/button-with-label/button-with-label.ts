@@ -11,5 +11,6 @@ export class ButtonWithLabel {
 
   @Input() label!:string;
   @Input() buttonLabel!:string;
+  @Input() buttonSize = ""
 
 }
