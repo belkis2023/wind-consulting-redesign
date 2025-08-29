@@ -1,4 +1,4 @@
-<div #newsCard class="flex flex-col h-[490px] xs:h-[400px] sm:h-96 w-[85vw] xs:w-[82vw]">
+<div #newsCard class="flex flex-col h-[490px] xs:h-96 sm:h-96 w-[85vw] xs:w-[clamp(80vw,83vw,90vw)] md:w-full">
   <app-line-wrapper>
     <div class="flex flex-col z-0 xs:flex-row gap-4 sm:gap-8 h-[285px] xs:h-[160px] sm:h-32">
       <!-- here we have the news image -->
@@ -6,7 +6,7 @@
       ></app-news-card>
 
       <!-- here we have the news text -->
-      <div class="text-links-blue text-sm sm:text-lg
+      <div class="text-links-blue text-sm mlg:text-lg
                    line-clamp-4 xs:!line-clamp-5"
           style="line-height: 1.6">
         {{ newsText }}

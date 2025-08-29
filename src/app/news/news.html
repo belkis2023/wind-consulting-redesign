@@ -5,7 +5,7 @@
        (mouseleave)="resumeAnimation()"
     class="">
     <div  #sliderContainer class="flex whitespace-nowrap">
-      <div class="flex-shrink-0 flex items-center px-4">
+      <div class=" flex-shrink-0 flex items-center px-4">
         <app-generic-title size="xlarge">
           Nos Dernières <span class="text-blue-600">Actualités</span>
         </app-generic-title>
@@ -21,7 +21,7 @@
   <!-- the cards -->
   <div  appDetectHorizontalOverflow #newsScrollSection
         (isOverFlowing) = "showScrollButtons = $event"
-        class=" scroll-smooth no-scrollbar flex gap-8 justify-between mx-auto overflow-x-auto">
+        class="!w-full scroll-smooth no-scrollbar flex gap-3 sm:gap-8 lg:!gap-20 justify-around overflow-x-auto">
         <app-card-with-horizontal-lines #singleCard
           *ngFor="let news of newsList; let i = index"
            [newsText]=news>
