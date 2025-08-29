@@ -1,4 +1,4 @@
-<div class="relative w-full h-[110vh] md:h-[500px] flex justify-self-center top-4 mb-12"
+<div class="relative w-full h-[110vh] md:h-[400px] flex justify-self-center top-4 mb-12"
      [ngClass]="[getRoundedClass()]">
   <!-- Bottom base Layer: the blue + the bigger background image -->
   <div class="absolute inset-0 z-0 flex text-white
@@ -17,27 +17,27 @@
 
   <div class="flex flex-col md:flex-row">
     <!-- content: title + description + button-->
-    <div class="absolute py-8 sm:py-14 md:py-10 px-4 xs:px-10 sm:!px-16 space-y-5 xs:space-y-10
-        sm:space-y-14 md:space-y-4 md:self-center lg:!px-14 gap-7 xs:gap-2 sm:!gap-6
-              flex justify-start flex-col md:w-1/2">
+    <div class="absolute py-8 xs:py-2 sm:py-14 md:py-8 px-4 xs:px-10 sm:!px-12
+        sm:space-y-14 md:space-y-6 md:self-center lg:!px-14 gap-7 xs:gap-2 sm:!gap-6
+              flex justify-around flex-col h-[60%] md:h-full md:w-1/2">
       <!-- title + description -->
-      <div class="flex sm:text-lg flex-col space-y-4 xs:space-y-8 md:space-y-6 text-white specialFont sm:!gap-2">
+      <div class="flex sm:text-lg flex-col space-y-4 xs:space-y-8 md:space-y-2 text-white specialFont sm:!gap-2">
         <p class="text-[#59EEFF]">
           {{ tag }}
         </p>
         <h2 class="font-bold text-lg sm:text-xl" style="line-height: 1.5">
           {{ title }}
         </h2>
-        <p class="text-sm sm:text-base text-wrap" style="line-height: 1.6 !important;">
+        <p class="text-sm sm:text-base md:text-[clamp(0.875rem,1.4vw,1.1rem)] text-wrap" style="line-height: 1.6 !important;">
           {{ description }}
         </p>
       </div>
       <!-- button -->
 
-      <div class="relative xs:!-bottom-2 sm:!bottom-10">
+      <div class="relative xs:!bottom-2 sm:!bottom-10 sm:flex sm:justify-start mlg:!bottom-0 mlg:-top-2">
         <app-button-with-background
           backgroundImageUrl="/public/background-images/generic-background/background1-with-more-fill.svg" [label]="buttonLabel"
-          icon="arrow-up-right" width="w-[90%] sm:w-64 md:w-48" height="h-10" [strokeWidth]="2" strokeColor="stroke-links-blue"
+          icon="arrow-up-right" width="w-full sm:w-64 md:w-48" height="h-10" [strokeWidth]="2" strokeColor="stroke-links-blue"
           textColor="text-links-blue" [logo]="true" whichLogo="logoBlue" backgroundPosition="bottom" logoSize="size-10"
           bgColor="bg-white" imageOpacity="opacity-100" class="flex justify-center md:justify-start">
         </app-button-with-background>
