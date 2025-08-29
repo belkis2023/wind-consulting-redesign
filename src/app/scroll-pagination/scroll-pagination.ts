@@ -25,6 +25,7 @@ export class ScrollPagination implements OnInit, AfterViewInit {
     if(this.singleElementWidth) {
       const containerStyles = getComputedStyle(this.scrollContainer);
       const gapStr = containerStyles.getPropertyValue('gap');
+      console.log(gapStr);
       const gap = parseFloat(gapStr) || 0; // Default to 0 if gap is not set
       this.scrollStep = this.singleElementWidth + gap;
     }
@@ -36,8 +37,9 @@ export class ScrollPagination implements OnInit, AfterViewInit {
   calculatePages() {
     const container = this.scrollContainer;
     const totalScrollableWidth = container.scrollWidth - container.clientWidth;
+    console.log(totalScrollableWidth, this.scrollStep);
     this.pages = Math.ceil(totalScrollableWidth / this.scrollStep) +1;
-
+    console.log(this.pages);
     this.noPages.emit(this.pages);
 
   }

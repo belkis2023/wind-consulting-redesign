@@ -30,7 +30,7 @@
     <!-- now the cards -->
     <div #chiffresScrollContainer appDetectHorizontalOverflow
          (isOverFlowing) = "showScrollButtons = $event"
-         class="page-container w-screen snap-x snap-mandatory scroll-smooth no-scrollbar overflow-x-auto flex gap-11 z-20"
+         class=" w-full min-w-0 snap-x snap-mandatory scroll-smooth no-scrollbar overflow-x-auto flex gap-11 z-20"
          [class.justify-center]="!showScrollButtons"
          [class.justify-start]="showScrollButtons">
       <div *ngFor="let chiffre of chiffres; let i = index"

@@ -48,7 +48,7 @@ export class ChiffresCles implements AfterViewInit {
 
     const cardElement = this.childCard.getCardElement();
     this.cardWidth = cardElement.offsetWidth;
-    console.log(this.showScrollButtons);
+    console.log(this.cardWidth);
 
 
   }
@@ -56,11 +56,11 @@ export class ChiffresCles implements AfterViewInit {
   get containerClass() {
     return {
       // Base classes
-      'w-full transition-all duration-300': true,
+
 
       // Conditional heights based on boolean + screen size
-      'h-96 sm:h-40 md:h-[790px]': !this.showScrollButtons,
-      'h-[750px] xs:h-[800px] sm:h-[830px] md:h-96': this.showScrollButtons
+      'h-96 sm:h-40 md:h-[760px]': !this.showScrollButtons,
+      'h-[750px] xs:h-[790px] sm:h-[830px] md:h-[830px]': this.showScrollButtons
     };
 
 }
