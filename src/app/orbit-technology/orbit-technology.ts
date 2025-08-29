@@ -170,6 +170,7 @@ export class OrbitTechnologyComponent implements AfterViewInit {
         start: "top 80%",
         end: "top 30%",
         scrub: 1.5,
+        toggleActions: "play pause resume none",
       }
     });
 
@@ -191,7 +192,7 @@ export class OrbitTechnologyComponent implements AfterViewInit {
         scrollTrigger: {
           trigger: sideCards,
           start: "top 85%",
-          toggleActions: "play pause resume reverse",
+          toggleActions: "play pause resume none",
         }
       }
     );
@@ -240,8 +241,8 @@ export class OrbitTechnologyComponent implements AfterViewInit {
 
   getCornerClass(index: number) {
     const positions = [
-      'top-32 left-40', // top left
-      'bottom-32 right-40', // bottom right
+      'top-5 left-20 xl:top-32 xl:left-40', // top left
+      'bottom-5 right-20 xl:bottom-32 xl:right-40', // bottom right
       'top-0 right-0', // top right
       'bottom-0 left-0', // bottom left
     ];
