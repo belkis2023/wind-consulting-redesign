@@ -6,3 +6,7 @@
     width: 100%;
     height: auto;
 }
+
+.max-gap {
+  gap: clamp(0.75rem, 3vw, 4rem); /* 16px to 64px */
+}

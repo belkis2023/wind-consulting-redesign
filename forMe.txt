@@ -12,3 +12,4 @@ to fix later:
 - the orbit cards: add the svg icons effect (the gradient thing)
 
 **fix chiffres-cles section**
+**chiffres-cles: snap-to feha mochkla**
