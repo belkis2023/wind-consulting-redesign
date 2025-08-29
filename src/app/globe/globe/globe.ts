@@ -109,8 +109,8 @@ export class Globe implements AfterViewInit {
   adjustCamera() {
     if (this.globeInstance) {
       const camera = this.globeInstance.camera();
-      let minZ = 280; // best tested value for big screens
-      let maxZ = 400; //best tested value for small screens
+      let minZ = 260; // best tested value for big screens
+      let maxZ = 390; //best tested value for small screens
 
       let minWidth = 350; //small screens
       let maxWidth = 1900; //bigger screens

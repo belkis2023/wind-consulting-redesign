@@ -1,4 +1,7 @@
-<div class="relative w-[90vw] sm:w-[70vw] h-64 top-4 md:w-[570px] md:h-80
+<div class="relative w-[clamp(20rem,60vw,25rem)] h-64
+             top-4 md:w-[400px]
+            mlg:w-[clamp(28rem,60vw,30rem)] mlg:h-72
+            lg:w-[clamp(15rem,45vw,35rem)] lg:h-72
             md:mb-12 rounded-full"
     >
     <!-- Bottom base Layer: the blue -->
@@ -35,10 +38,10 @@
 
             <!-- title + description -->
             <div class="flex flex-col space-y-3">
-                <h2 class="text-white font-bold">
+                <h2 class="text-white sm:text-xl lg:text-2xl font-bold">
                     {{ project.title }}
                 </h2>
-                <p>
+                <p class="sm:text-lg md:text-base pr-1 mlg:pr-4">
                     {{ project.description }}
                 </p>
             </div>
