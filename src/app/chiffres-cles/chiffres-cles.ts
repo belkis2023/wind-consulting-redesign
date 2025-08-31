@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild, HostListener } from '@angular/core';
 import { GenericTitle } from '../generic-title/generic-title/generic-title';
 import { ChiffresClesCard } from '../cards/chiffres-cles-card/chiffres-cles-card';
 import { CommonModule } from '@angular/common';
@@ -27,6 +27,9 @@ export class ChiffresCles implements AfterViewInit {
   chiffresScrollContainer!: ElementRef<HTMLElement>;
   @ViewChild(ChiffresClesCard) childCard!: ChiffresClesCard;
 
+  //for the responsive svg
+  @ViewChild('responsiveSvg', { static: true }) svgRef!:ElementRef<SVGElement>;
+
   showScrollButtons: boolean = false;
   cardWidth: number = 0;
 
@@ -48,22 +51,49 @@ export class ChiffresCles implements AfterViewInit {
 
     const cardElement = this.childCard.getCardElement();
     this.cardWidth = cardElement.offsetWidth;
-    console.log(this.cardWidth);
+
+    this.adjustSVG();
 
 
   }
 
+  @HostListener('window:resize')
+  onResize() {
+    this.adjustSVG();
+  }
+
+  private adjustSVG() {
+    const svg = this.svgRef.nativeElement;
+    const width = window.innerWidth;
+
+
+    if (width < 640) {
+      // extra small screens
+      svg.setAttribute('viewBox', '0 0 600 1200');
+      svg.setAttribute('width', '80%');
+      svg.setAttribute('height', '800');
+    } else if (width < 896) {
+      // small screens 640px to 896px
+      svg.setAttribute('viewBox', '0 0 750 1200');
+      svg.setAttribute('width', '60%');
+      svg.setAttribute('height', '880');
+    } else {
+      // medium and larger > 896px
+      svg.setAttribute('viewBox', '0 0 850 1200');
+      svg.setAttribute('width', '40%');
+      svg.setAttribute('height', '860');
+    }
+  }
+
   get containerClass() {
     return {
-      // Base classes
 
-
-      // Conditional heights based on boolean + screen size
       'h-96 sm:h-40 md:h-[760px]': !this.showScrollButtons,
       'h-[750px] xs:h-[790px] sm:h-[830px] md:h-[830px]': this.showScrollButtons
     };
+  }
 
-}
+
 
 
 }
