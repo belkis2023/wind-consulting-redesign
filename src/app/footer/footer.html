@@ -1,6 +1,8 @@
-<footer class="absolute w-full h-[1100px] xs:!max-h-[1115px]
-      sm:h-[1030px] md:h-[550px] top-wave-mobile sm:top-wave
-      overflow-hidden text-white specialFont">
+<footer class="absolute w-full h-[1000px] xs:!h-[clamp(1000px,130vh,1050px)]
+      msm:!h-[clamp(960px,140vh,1050px)]
+      sm:!h-[clamp(920px,145vh,960px)]
+      md:!h-[600px] top-wave-mobile md:top-wave
+      overflow-hidden text-white specialFont z-10">
 
   <!-- Background image layer -->
   <div class="footer-image-back absolute inset-0 z-0"></div>
@@ -12,7 +14,7 @@
   <div class="relative w-full z-10 h-full flex">
 
     <!-- here is the top part: links and logo and stuff -->
-    <div class="absolute page-container top-56 md:top-32 w-full flex left-1/2 -translate-x-1/2">
+    <div class="absolute page-container top-14 md:top-32 w-full flex left-1/2 -translate-x-1/2">
       <app-footer-links></app-footer-links>
     </div>
 
