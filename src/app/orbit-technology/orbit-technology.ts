@@ -152,50 +152,60 @@ export class OrbitTechnologyComponent implements AfterViewInit {
 
   //scroll trigger animation
   triggerOrbitSection() {
-    // Orbit animation
+    // Orbit animation for the blue dots
     const section = this.orbitSection.nativeElement;
 
     gsap.set(section, {
-      scale: 0.4,
-      clipPath: "circle(0% at 50% 50%)",
-      filter: "blur(1px)"
+      // scale: 0.4,
+      // clipPath: "circle(0% at 50% 50%)",
+      // filter: "blur(1px)"
+      opacity: 0,
+      scale: 0.9,
+      filter: "blur(8px)"
     });
 
     gsap.to(section, {
-      scale: 1,
-      clipPath: "circle(150% at 50% 50%)",
+      // scale: 1,
+      // clipPath: "circle(120% at 50% 50%)",
+      // filter: "blur(0px)",
+      // scrollTrigger: {
+      //   trigger: section,
+      //   start: "top 80%",
+      //   end: "top 30%",
+      //   scrub: 1.5,
+      //   toggleActions: "play pause resume none",
+      opacity: 1,
+      scale: 1.05,
       filter: "blur(0px)",
+      duration: 1,
+      ease: "power3.out",
       scrollTrigger: {
         trigger: section,
         start: "top 80%",
-        end: "top 30%",
-        scrub: 1.5,
-        toggleActions: "play pause resume none",
+        toggleActions: "play none none none",
+        once: true
+      },
+      onComplete: () => {
+        gsap.to(section, { scale: 1, duration: 0.2, ease: "power1.inOut" });
       }
     });
 
     // Side cards animation (separate trigger)
     const sideCards = document.querySelectorAll('.side-card');
 
-    gsap.fromTo(sideCards,
-      {
+    sideCards.forEach((card, i) => {
+      gsap.from(card, {
+        x: i % 2 === 0 ? -150 : 150, // even index: left, odd index: right
         opacity: 0,
-        y: 50,
-        scale: 0.8
-      },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 1.5,
-        ease: "power2.out",
+        duration: 1.2,
+        ease: "power3.out",
         scrollTrigger: {
-          trigger: sideCards,
+          trigger: card,
           start: "top 85%",
-          toggleActions: "play pause resume none",
+          toggleActions: "play none none none"
         }
-      }
-    );
+      });
+    });
 
 
   }

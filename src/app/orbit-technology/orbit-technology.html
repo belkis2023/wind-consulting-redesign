@@ -4040,10 +4040,10 @@
     <!-- cards on large screens -->
     <ng-container *ngFor="let card of cards; let i = index">
       <div
-        class="absolute hidden z-30 md:block"
+        class="absolute hidden side-card z-30 md:block"
         [ngClass]="getCornerClass(i)"
       >
-        <app-used-tech-card class="side-card" [visibleTechs]="card"></app-used-tech-card>
+        <app-used-tech-card [visibleTechs]="card"></app-used-tech-card>
       </div>
     </ng-container>
   </div>

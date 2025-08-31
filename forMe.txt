@@ -1,18 +1,13 @@
 to fix later:
-- create two pagination modes: blue one and white one
-- fix the logo cut in mobile view + desktop!! for the chiffres-cles section
-- rename client-card => mini-card
-- for the snap-to-card effect, you can divide the container width by the number of cards
-- fix the button on the hero card on sm view
--  make the scroll dynamic aka add the rest from the whole container offset width divided by the number of elements/cards
-(news section)
-- fix the nws section (make the width smaller depending on the screen(we don't always need scroll, just smaller cards)
-- make a bigger font size for the title in the news section
-- make the news section title scrollable
-- the orbit cards: add the svg icons effect (the gradient thing)
 
-**fix chiffres-cles section**
-**chiffres-cles: snap-to feha mochkla**
+
+
+
+- fix the nws section (make the width smaller depending on the screen(we don't always need scroll, just smaller cards)
+
+
+
+
 **l globe s8ira brjouliya kaber feha**
-**fix fazet l animation fl orbit**
+
 **l scroll section , a partir mel xl: make the cards bigger**
